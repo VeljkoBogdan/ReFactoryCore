@@ -1,4 +1,8 @@
-package com.example.examplemod;
+package com.illuminatijoe.refactorycore;
+
+import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
+import com.illuminatijoe.refactorycore.data.datagen.ReFactoryDatagen;
+import com.illuminatijoe.refactorycore.machines.ReFactoryMachines;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
@@ -6,7 +10,6 @@ import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEv
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
-import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
 import net.minecraft.client.Minecraft;
@@ -22,14 +25,16 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(ExampleMod.MOD_ID)
-public class ExampleMod {
+@Mod(ReFactoryCore.MOD_ID)
+public class ReFactoryCore {
 
-    public static final String MOD_ID = "examplemod";
+    public static final String MOD_ID = "refactorycore";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(ExampleMod.MOD_ID);
 
-    public ExampleMod() {
+    public ReFactoryCore() {
+        ReFactoryRegistries.REGISTRATE.registerRegistrate();
+        ReFactoryDatagen.init();
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -78,7 +83,7 @@ public class ExampleMod {
      * @param event
      */
     private void addMaterialRegistries(MaterialRegistryEvent event) {
-        GTCEuAPI.materialManager.createRegistry(ExampleMod.MOD_ID);
+        GTCEuAPI.materialManager.createRegistry(ReFactoryCore.MOD_ID);
     }
 
     /**
@@ -117,7 +122,7 @@ public class ExampleMod {
      * @param event
      */
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
-        // CustomMachines.init();
+        ReFactoryMachines.init();
     }
 
     /**

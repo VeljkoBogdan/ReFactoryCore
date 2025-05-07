@@ -81,6 +81,11 @@ repositories {
         url = "https://thedarkcolour.github.io/KotlinForForge/"
     }
 
+    maven {
+        name = "latviandevReleases"
+        url = uri("https://maven.latvian.dev/releases")
+    }
+
 }
 
 version = mod_version
