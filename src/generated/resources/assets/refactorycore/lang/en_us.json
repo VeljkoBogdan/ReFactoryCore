@@ -1,8 +1,9 @@
 {
-  "block.gtceu.advanced_primitive_blast_furnace": "Advanced Primitive Blast Furnace",
+  "block.gtceu.advanced_primitive_blast_furnace": "Advanced Blast Furnace",
   "block.gtceu.steam_blender": "Steam Blender",
   "block.gtceu.steam_borer": "Steam Borer",
   "block.gtceu.steam_large_extractor": "Large Steam Extractor",
+  "gtceu.advanced_primitive_blast_furnace": "Advanced Blasting",
   "tooltip.gtceu.advanced_primitive_blast_furnace.0": "§7Much faster than the Primitive Blast Furnace",
   "tooltip.gtceu.advanced_primitive_blast_furnace.1": "§7Allows use of coal and charcoal to produce steel",
   "tooltip.gtceu.advanced_primitive_blast_furnace.2": "§7Processes up to 4 recipes in parallel",

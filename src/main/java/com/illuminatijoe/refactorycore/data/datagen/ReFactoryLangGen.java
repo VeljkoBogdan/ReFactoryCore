@@ -10,7 +10,9 @@ public class ReFactoryLangGen {
         replace(provider, "block.gtceu.steam_blender", "Steam Blender");
         replace(provider, "block.gtceu.steam_borer", "Steam Borer");
         replace(provider, "block.gtceu.steam_large_extractor", "Large Steam Extractor");
-        replace(provider, "block.gtceu.advanced_primitive_blast_furnace", "Advanced Primitive Blast Furnace");
+        replace(provider, "block.gtceu.advanced_primitive_blast_furnace", "Advanced Blast Furnace");
+
+        replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");
 
         replace(provider, "tooltip.gtceu.steam_blender.0", "Steam multiblock mixer");
         replace(provider, "tooltip.gtceu.steam_blender.1", "§7Processes up to 8 recipes in parallel");

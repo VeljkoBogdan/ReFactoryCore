@@ -72,7 +72,12 @@ public class APBFMachine extends WorkableMultiblockMachine implements IDisplayUI
                 textList.add(Component.translatable("gtceu.multiblock.running"));
                 int currentProgress = (int) (recipeLogic.getProgressPercent() * 100);
                 textList.add(Component.translatable("gtceu.multiblock.parallel", MAX_PARALLELS));
-                textList.add(Component.translatable("gtceu.multiblock.progress", currentProgress));
+                double currentInSec = recipeLogic.getProgress() / 20.0;
+                double maxInSec = recipeLogic.getMaxProgress() / 20.0;
+                textList.add(Component.translatable("gtceu.multiblock.progress",
+                        String.format("%.2f", (float) currentInSec),
+                        String.format("%.2f", (float) maxInSec),
+                        currentProgress));
             } else {
                 textList.add(Component.translatable("gtceu.multiblock.idling"));
             }
@@ -120,7 +125,7 @@ public class APBFMachine extends WorkableMultiblockMachine implements IDisplayUI
     public static ModifierFunction recipeModifier(@NotNull MetaMachine machine, @NotNull GTRecipe recipe) {
         if (RecipeHelper.getRecipeEUtTier(recipe) > GTValues.LV) return ModifierFunction.NULL;
         long euTick = RecipeHelper.getRecipeEUtTier(recipe);
-        int parallel = ParallelLogic.getParallelAmount(machine, recipe, 8);
+        int parallel = ParallelLogic.getParallelAmount(machine, recipe, MAX_PARALLELS);
         return ModifierFunction.builder()
                 .inputModifier(ContentModifier.multiplier(parallel))
                 .outputModifier(ContentModifier.multiplier(parallel))
