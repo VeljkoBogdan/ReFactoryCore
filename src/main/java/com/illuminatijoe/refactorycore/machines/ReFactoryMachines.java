@@ -23,7 +23,7 @@ public class ReFactoryMachines {
             .tooltips(Component.translatable("tooltip.gtceu.steam_blender.0"),
                     Component.translatable("tooltip.gtceu.steam_blender.1"))
             .rotationState(RotationState.ALL)
-            .appearanceBlock(BRONZE_HULL)
+            .appearanceBlock(CASING_BRONZE_BRICKS)
             .recipeType(GTRecipeTypes.MIXER_RECIPES)
             .recipeModifier(WeakSteamParallelMultiblockMachine::recipeModifier, true)
             .addOutputLimit(ItemRecipeCapability.CAP, 1)
@@ -51,7 +51,7 @@ public class ReFactoryMachines {
             .tooltips(Component.translatable("tooltip.gtceu.steam_borer.0"),
                     Component.translatable("tooltip.gtceu.steam_borer.1"))
             .rotationState(RotationState.ALL)
-            .appearanceBlock(BRONZE_HULL)
+            .appearanceBlock(CASING_BRONZE_BRICKS)
             .recipeType(GTRecipeTypes.LATHE_RECIPES)
             .recipeModifier(WeakSteamParallelMultiblockMachine::recipeModifier, true)
             .addOutputLimit(ItemRecipeCapability.CAP, 1)
@@ -76,7 +76,7 @@ public class ReFactoryMachines {
             .tooltips(Component.translatable("tooltip.gtceu.steam_large_extractor.0"),
                     Component.translatable("tooltip.gtceu.steam_large_extractor.1"))
             .rotationState(RotationState.ALL)
-            .appearanceBlock(BRONZE_HULL)
+            .appearanceBlock(CASING_BRONZE_BRICKS)
             .recipeType(GTRecipeTypes.EXTRACTOR_RECIPES)
             .recipeModifier(WeakSteamParallelMultiblockMachine::recipeModifier, true)
             .addOutputLimit(ItemRecipeCapability.CAP, 1)
