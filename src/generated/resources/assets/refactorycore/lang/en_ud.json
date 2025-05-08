@@ -1,8 +1,11 @@
 {
+  "block.gtceu.large_steam_extractor": "ɹoʇɔɐɹʇxƎ ɯɐǝʇS ǝbɹɐꞀ",
   "block.gtceu.steam_blender": "ɹǝpuǝןᗺ ɯɐǝʇS",
   "block.gtceu.steam_borer": "ɹǝɹoᗺ ɯɐǝʇS",
   "tooltip.gtceu.steam_blender.0": "ɹǝxıɯ ʞɔoןqıʇןnɯ ɯɐǝʇS",
   "tooltip.gtceu.steam_blender.1": "ןǝןןɐɹɐd uı sǝdıɔǝɹ 8 oʇ dn sǝssǝɔoɹԀㄥ§",
   "tooltip.gtceu.steam_borer.0": "ǝɥʇɐן ʞɔoןqıʇןnɯ ɯɐǝʇS",
-  "tooltip.gtceu.steam_borer.1": "ןǝןןɐɹɐd uı sǝdıɔǝɹ 8 oʇ dn sǝssǝɔoɹԀㄥ§"
+  "tooltip.gtceu.steam_borer.1": "ןǝןןɐɹɐd uı sǝdıɔǝɹ 8 oʇ dn sǝssǝɔoɹԀㄥ§",
+  "tooltip.gtceu.steam_large_extractor.0": "ɹoʇɔɐɹʇxǝ ʞɔoןqıʇןnɯ ɯɐǝʇS",
+  "tooltip.gtceu.steam_large_extractor.1": "ןǝןןɐɹɐd uı sǝdıɔǝɹ 8 oʇ dn sǝssǝɔoɹԀㄥ§"
 }
