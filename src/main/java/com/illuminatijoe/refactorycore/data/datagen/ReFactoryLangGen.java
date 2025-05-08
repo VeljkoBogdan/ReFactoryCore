@@ -11,6 +11,8 @@ public class ReFactoryLangGen {
         replace(provider, "block.gtceu.steam_borer", "Steam Borer");
         replace(provider, "block.gtceu.steam_large_extractor", "Large Steam Extractor");
         replace(provider, "block.gtceu.advanced_primitive_blast_furnace", "Advanced Blast Furnace");
+        replace(provider, "block.gtceu.bronze_multiblock_tank", "Bronze Multiblock Tank");
+        replace(provider, "block.gtceu.bronze_tank_valve", "Bronze Tank Valve");
 
         replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");
 

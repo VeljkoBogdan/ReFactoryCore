@@ -7,6 +7,7 @@ import com.illuminatijoe.refactorycore.machines.multiblock.steam.WeakSteamParall
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.capability.recipe.ItemRecipeCapability;
 import com.gregtechceu.gtceu.api.data.RotationState;
+import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
@@ -14,6 +15,7 @@ import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.client.renderer.machine.LargeBoilerRenderer;
 import com.gregtechceu.gtceu.common.block.BoilerFireboxType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.registry.GTRegistration;
 
 import net.minecraft.network.chat.Component;
@@ -126,6 +128,16 @@ public class ReFactoryMachines {
                     BoilerFireboxType.STEEL_FIREBOX,
                     GTCEu.id("block/multiblock/primitive_blast_furnace")))
             .register();
+
+    public static final MachineDefinition BRONZE_TANK_VALVE = GTMachineUtils.registerTankValve(
+            "bronze_tank_valve", "Bronze Tank Valve", true,
+            (builder, overlay) -> builder.workableCasingRenderer(
+                    GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"), overlay));
+    public static final MultiblockMachineDefinition BRONZE_MULTIBLOCK_TANK = GTMachineUtils.registerMultiblockTank(
+            "bronze_multiblock_tank", "Bronze Multiblock Tank", 500 * 1000,
+            CASING_BRONZE_BRICKS, BRONZE_TANK_VALVE::getBlock, null,
+            (builder, overlay) -> builder.workableCasingRenderer(
+                    GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"), overlay));
 
     public static void init() {}
 }
