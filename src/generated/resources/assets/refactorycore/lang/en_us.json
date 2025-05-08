@@ -1,3 +1,8 @@
 {
-  "block.gtceu.steam_blender": "Steam Blender"
+  "block.gtceu.steam_blender": "Steam Blender",
+  "block.gtceu.steam_borer": "Steam Borer",
+  "tooltip.gtceu.steam_blender.0": "Steam multiblock mixer",
+  "tooltip.gtceu.steam_blender.1": "§7Processes up to 8 recipes in parallel",
+  "tooltip.gtceu.steam_borer.0": "Steam multiblock lathe",
+  "tooltip.gtceu.steam_borer.1": "§7Processes up to 8 recipes in parallel"
 }
