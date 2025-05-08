@@ -2,6 +2,7 @@ package com.illuminatijoe.refactorycore;
 
 import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
 import com.illuminatijoe.refactorycore.data.datagen.ReFactoryDatagen;
+import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.machines.ReFactoryMachines;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
@@ -112,7 +113,7 @@ public class ReFactoryCore {
      * @param event
      */
     private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
-        // CustomRecipeTypes.init();
+        ReFactoryCoreRecipeTypes.init();
     }
 
     /**

@@ -1,7 +1,11 @@
 {
-  "block.gtceu.large_steam_extractor": "ɹoʇɔɐɹʇxƎ ɯɐǝʇS ǝbɹɐꞀ",
+  "block.gtceu.advanced_primitive_blast_furnace": "ǝɔɐuɹnℲ ʇsɐןᗺ ǝʌıʇıɯıɹԀ pǝɔuɐʌpⱯ",
   "block.gtceu.steam_blender": "ɹǝpuǝןᗺ ɯɐǝʇS",
   "block.gtceu.steam_borer": "ɹǝɹoᗺ ɯɐǝʇS",
+  "block.gtceu.steam_large_extractor": "ɹoʇɔɐɹʇxƎ ɯɐǝʇS ǝbɹɐꞀ",
+  "tooltip.gtceu.advanced_primitive_blast_furnace.0": "ǝɔɐuɹnℲ ʇsɐןᗺ ǝʌıʇıɯıɹԀ ǝɥʇ uɐɥʇ ɹǝʇsɐɟ ɥɔnWㄥ§",
+  "tooltip.gtceu.advanced_primitive_blast_furnace.1": "ןǝǝʇs ǝɔnpoɹd oʇ ןɐoɔɹɐɥɔ puɐ ןɐoɔ ɟo ǝsn sʍoןןⱯㄥ§",
+  "tooltip.gtceu.advanced_primitive_blast_furnace.2": "ןǝןןɐɹɐd uı sǝdıɔǝɹ ㄣ oʇ dn sǝssǝɔoɹԀㄥ§",
   "tooltip.gtceu.steam_blender.0": "ɹǝxıɯ ʞɔoןqıʇןnɯ ɯɐǝʇS",
   "tooltip.gtceu.steam_blender.1": "ןǝןןɐɹɐd uı sǝdıɔǝɹ 8 oʇ dn sǝssǝɔoɹԀㄥ§",
   "tooltip.gtceu.steam_borer.0": "ǝɥʇɐן ʞɔoןqıʇןnɯ ɯɐǝʇS",

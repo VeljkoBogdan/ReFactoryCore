@@ -1,5 +1,7 @@
 package com.illuminatijoe.refactorycore.machines;
 
+import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
+import com.illuminatijoe.refactorycore.machines.multiblock.other.APBFMachine;
 import com.illuminatijoe.refactorycore.machines.multiblock.steam.WeakSteamParallelMultiblockMachine;
 
 import com.gregtechceu.gtceu.GTCEu;
@@ -9,6 +11,8 @@ import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
+import com.gregtechceu.gtceu.client.renderer.machine.LargeBoilerRenderer;
+import com.gregtechceu.gtceu.common.block.BoilerFireboxType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.registry.GTRegistration;
 
@@ -95,6 +99,32 @@ public class ReFactoryMachines {
                     .build())
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
                     GTCEu.id("block/machines/extractor"), false)
+            .register();
+
+    public static final MultiblockMachineDefinition ADVANCED_PRIMITIVE_BLAST_FURNACE = GTRegistration.REGISTRATE
+            .multiblock("advanced_primitive_blast_furnace", APBFMachine::new)
+            .tooltips(Component.translatable("tooltip.gtceu.advanced_primitive_blast_furnace.0"),
+                    Component.translatable("tooltip.gtceu.advanced_primitive_blast_furnace.1"),
+                    Component.translatable("tooltip.gtceu.advanced_primitive_blast_furnace.2"))
+            .rotationState(RotationState.NON_Y_AXIS)
+            .appearanceBlock(CASING_STEEL_SOLID)
+            .recipeType(ReFactoryCoreRecipeTypes.ADVANCED_PRIMITIVE_BLAST_FURNACE_RECIPES)
+            .recipeModifier(APBFMachine::recipeModifier, true)
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("FFF", "CCC", "CCC", "CCC", "CCC")
+                    .aisle("FFF", "C#C", "C#C", "C#C", "C#C")
+                    .aisle("FFF", "COC", "CCC", "CCC", "CCC")
+                    .where('O', Predicates.controller(Predicates.blocks(definition.getBlock())))
+                    .where('F', Predicates.blocks(FIREBOX_STEEL.get()).setMinGlobalLimited(6)
+                            .or(Predicates.abilities(PartAbility.STEAM_IMPORT_ITEMS).setMaxGlobalLimited(1))
+                            .or(Predicates.abilities(PartAbility.STEAM_EXPORT_ITEMS).setMaxGlobalLimited(1))
+                            .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(1)))
+                    .where('#', Predicates.air())
+                    .where('C', Predicates.blocks(CASING_STEEL_SOLID.get()))
+                    .build())
+            .renderer(() -> new LargeBoilerRenderer(GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
+                    BoilerFireboxType.STEEL_FIREBOX,
+                    GTCEu.id("block/multiblock/primitive_blast_furnace")))
             .register();
 
     public static void init() {}
