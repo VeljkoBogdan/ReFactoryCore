@@ -77,7 +77,7 @@ public class WeakSteamParallelMultiblockMachine extends WorkableMultiblockMachin
     public static ModifierFunction recipeModifier(@NotNull MetaMachine machine, @NotNull GTRecipe recipe) {
         if (RecipeHelper.getRecipeEUtTier(recipe) > GTValues.LV) return ModifierFunction.NULL;
         long euTick = RecipeHelper.getRecipeEUtTier(recipe);
-        int parallel = ParallelLogic.getParallelAmount(machine, recipe, 4);
+        int parallel = ParallelLogic.getParallelAmount(machine, recipe, MAX_PARALLELS);
         double eutMulti = (euTick * 0.5 * parallel <= 32) ? (parallel * 0.5) : (32.0 / euTick);
         return ModifierFunction.builder()
                 .inputModifier(ContentModifier.multiplier(parallel))
