@@ -1,6 +1,8 @@
 package com.illuminatijoe.refactorycore;
 
 import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
+import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
+import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipes;
 
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
@@ -34,7 +36,8 @@ public class ReFactoryCoreGTAddon implements IGTAddon {
 
     @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
-        // CustomRecipes.init(provider);
+        ReFactoryCoreRecipeTypes.init();
+        ReFactoryCoreRecipes.init(provider);
     }
 
     // If you have custom ingredient types, uncomment this & change to match your capability.
