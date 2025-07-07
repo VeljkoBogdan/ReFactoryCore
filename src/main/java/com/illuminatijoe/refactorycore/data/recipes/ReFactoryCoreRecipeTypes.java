@@ -3,7 +3,6 @@ package com.illuminatijoe.refactorycore.data.recipes;
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
-import com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 import com.gregtechceu.gtceu.common.data.GTSoundEntries;
 
 import static com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection.LEFT_TO_RIGHT;
