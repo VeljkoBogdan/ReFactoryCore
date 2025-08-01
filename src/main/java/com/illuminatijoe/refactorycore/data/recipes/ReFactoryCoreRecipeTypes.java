@@ -1,5 +1,6 @@
 package com.illuminatijoe.refactorycore.data.recipes;
 
+import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
@@ -15,6 +16,14 @@ public class ReFactoryCoreRecipeTypes {
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
             .setMaxTooltips(1)
             .setSound(GTSoundEntries.FIRE);
+
+    public static final GTRecipeType HYDRATOR_RECIPES = GTRecipeTypes.register(
+            "hydrator", GTRecipeTypes.ELECTRIC)
+            .setMaxIOSize(1, 1, 1, 0)
+            .setEUIO(IO.IN)
+            .setSlotOverlay(false, false, GuiTextures.DUST_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_BATH, LEFT_TO_RIGHT)
+            .setSound(GTSoundEntries.BATH);
 
     public static void init() {}
 }

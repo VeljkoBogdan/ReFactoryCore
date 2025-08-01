@@ -18,6 +18,7 @@ import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.registry.GTRegistration;
 
+import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.network.chat.Component;
 
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
@@ -169,6 +170,9 @@ public class ReFactoryMachines {
             CASING_BRONZE_BRICKS, BRONZE_TANK_VALVE::getBlock, null,
             (builder, overlay) -> builder.workableCasingRenderer(
                     GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"), overlay));
+
+    public static final MachineDefinition[] HYDRATOR = GTMachineUtils.registerSimpleMachines("hydrator",
+            ReFactoryCoreRecipeTypes.HYDRATOR_RECIPES, GTMachineUtils.hvCappedTankSizeFunction);
 
     public static void init() {}
 }
