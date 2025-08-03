@@ -13,6 +13,8 @@ public class ReFactoryCoreRecipes {
     public static final int REDUCED_DURATION = (int) (20 * 0.75);
 
     public static void init(Consumer<FinishedRecipe> provider) {
+        ReFactoryCoreMetaTileEntityLoader.init(provider);
+
         ADVANCED_PRIMITIVE_BLAST_FURNACE_RECIPES.recipeBuilder("steel_from_coal_gem")
                 .inputItems(ingot, Iron)
                 .inputItems(gem, Coal, 2)

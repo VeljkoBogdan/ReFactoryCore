@@ -18,7 +18,6 @@ import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.registry.GTRegistration;
 
-import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.network.chat.Component;
 
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;

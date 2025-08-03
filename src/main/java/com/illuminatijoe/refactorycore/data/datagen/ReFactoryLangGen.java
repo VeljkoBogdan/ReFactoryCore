@@ -15,7 +15,19 @@ public class ReFactoryLangGen {
         replace(provider, "block.gtceu.advanced_primitive_blast_furnace", "Advanced Blast Furnace");
         replace(provider, "block.gtceu.bronze_multiblock_tank", "Bronze Multiblock Tank");
         replace(provider, "block.gtceu.bronze_tank_valve", "Bronze Tank Valve");
-        replace(provider, "block.gtceu.hydrator", "Hydrator");
+        replace(provider, "block.gtceu.lv_hydrator", "Basic Hydrator");
+        replace(provider, "block.gtceu.mv_hydrator", "Advanced Hydrator");
+        replace(provider, "block.gtceu.hv_hydrator", "Advanced Hydrator II");
+        replace(provider, "block.gtceu.ev_hydrator", "Advanced Hydrator III");
+        replace(provider, "block.gtceu.iv_hydrator", "Elite Hydrator");
+        replace(provider, "block.gtceu.luv_hydrator", "Elite Hydrator II");
+        replace(provider, "block.gtceu.zpm_hydrator", "Elite Hydrator III");
+        replace(provider, "block.gtceu.uv_hydrator", "Ultimate Hydrator");
+        replace(provider, "block.gtceu.uhv_hydrator", "Epic Hydrator");
+        replace(provider, "block.gtceu.uev_hydrator", "Epic Hydrator II");
+        replace(provider, "block.gtceu.uiv_hydrator", "Epic Hydrator III");
+        replace(provider, "block.gtceu.uxv_hydrator", "Epic Hydrator IV");
+        replace(provider, "block.gtceu.opv_hydrator", "Legendary Hydrator");
 
         // Recipes
         replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");

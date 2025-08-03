@@ -1,0 +1,1 @@
+com.illuminatijoe.refactorycore.integration.kubejs.ReFactoryCoreKubeJSPlugin
