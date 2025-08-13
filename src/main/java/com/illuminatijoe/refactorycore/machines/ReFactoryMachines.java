@@ -1,5 +1,7 @@
 package com.illuminatijoe.refactorycore.machines;
 
+import com.gregtechceu.gtceu.common.registry.GTRegistration;
+import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.machines.multiblock.other.APBFMachine;
 import com.illuminatijoe.refactorycore.machines.multiblock.steam.WeakSteamParallelMultiblockMachine;
@@ -12,19 +14,19 @@ import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
-import com.gregtechceu.gtceu.client.renderer.machine.LargeBoilerRenderer;
+import com.gregtechceu.gtceu.client.renderer.machine.DynamicRenderHelper;
 import com.gregtechceu.gtceu.common.block.BoilerFireboxType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
-import com.gregtechceu.gtceu.common.registry.GTRegistration;
 
 import net.minecraft.network.chat.Component;
 
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
+import static com.gregtechceu.gtceu.common.data.models.GTMachineModels.createWorkableCasingMachineModel;
 
 public class ReFactoryMachines {
 
-    public static final MultiblockMachineDefinition MB_STEAM_MIXER = GTRegistration.REGISTRATE
+    public static final MultiblockMachineDefinition MB_STEAM_MIXER = ReFactoryRegistries.REGISTRATE
             .multiblock("steam_blender", WeakSteamParallelMultiblockMachine::new)
             .tooltips(Component.translatable("tooltip.gtceu.steam_blender.0"),
                     Component.translatable("tooltip.gtceu.steam_blender.1"))
@@ -59,11 +61,11 @@ public class ReFactoryMachines {
                                     .setPreviewCount(1)
                                     .setMaxGlobalLimited(1)))
                     .build())
-            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
-                    GTCEu.id("block/machines/mixer"), false)
+            .model(createWorkableCasingMachineModel(GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
+                    GTCEu.id("block/machines/mixer")))
             .register();
 
-    public static final MultiblockMachineDefinition MB_STEAM_LATHE = GTRegistration.REGISTRATE
+    public static final MultiblockMachineDefinition MB_STEAM_LATHE = ReFactoryRegistries.REGISTRATE
             .multiblock("steam_borer", WeakSteamParallelMultiblockMachine::new)
             .tooltips(Component.translatable("tooltip.gtceu.steam_borer.0"),
                     Component.translatable("tooltip.gtceu.steam_borer.1"))
@@ -93,11 +95,11 @@ public class ReFactoryMachines {
                                     .setPreviewCount(1)
                                     .setMaxGlobalLimited(1)))
                     .build())
-            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
-                    GTCEu.id("block/machines/lathe"), false)
+            .model(createWorkableCasingMachineModel(GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
+                    GTCEu.id("block/machines/lathe")))
             .register();
 
-    public static final MultiblockMachineDefinition MB_STEAM_EXTRACTOR = GTRegistration.REGISTRATE
+    public static final MultiblockMachineDefinition MB_STEAM_EXTRACTOR = ReFactoryRegistries.REGISTRATE
             .multiblock("steam_large_extractor", WeakSteamParallelMultiblockMachine::new)
             .tooltips(Component.translatable("tooltip.gtceu.steam_large_extractor.0"),
                     Component.translatable("tooltip.gtceu.steam_large_extractor.1"))
@@ -130,11 +132,11 @@ public class ReFactoryMachines {
                                     .setPreviewCount(1)
                                     .setMaxGlobalLimited(1)))
                     .build())
-            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
-                    GTCEu.id("block/machines/extractor"), false)
+            .model(createWorkableCasingMachineModel(GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
+                    GTCEu.id("block/machines/extractor")))
             .register();
 
-    public static final MultiblockMachineDefinition ADVANCED_PRIMITIVE_BLAST_FURNACE = GTRegistration.REGISTRATE
+    public static final MultiblockMachineDefinition ADVANCED_PRIMITIVE_BLAST_FURNACE = ReFactoryRegistries.REGISTRATE
             .multiblock("advanced_primitive_blast_furnace", APBFMachine::new)
             .tooltips(Component.translatable("tooltip.gtceu.advanced_primitive_blast_furnace.0"),
                     Component.translatable("tooltip.gtceu.advanced_primitive_blast_furnace.1"),
@@ -155,23 +157,26 @@ public class ReFactoryMachines {
                     .where('#', Predicates.air())
                     .where('C', Predicates.blocks(CASING_STEEL_SOLID.get()))
                     .build())
-            .renderer(() -> new LargeBoilerRenderer(GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
-                    BoilerFireboxType.STEEL_FIREBOX,
-                    GTCEu.id("block/multiblock/primitive_blast_furnace")))
+            .model(createWorkableCasingMachineModel(GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
+                    GTCEu.id("block/multiblock/primitive_blast_furnace"))
+                    .andThen(modelBuilder -> modelBuilder.addDynamicRenderer(
+                            () -> DynamicRenderHelper.makeBoilerPartRender(
+                                    BoilerFireboxType.STEEL_FIREBOX, FIREBOX_STEEL))))
             .register();
 
     public static final MachineDefinition BRONZE_TANK_VALVE = GTMachineUtils.registerTankValve(
             "bronze_tank_valve", "Bronze Tank Valve", true,
-            (builder, overlay) -> builder.workableCasingRenderer(
+            (builder, overlay) -> builder.workableCasingModel(
                     GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"), overlay));
     public static final MultiblockMachineDefinition BRONZE_MULTIBLOCK_TANK = GTMachineUtils.registerMultiblockTank(
             "bronze_multiblock_tank", "Bronze Multiblock Tank", 500 * 1000,
-            CASING_BRONZE_BRICKS, BRONZE_TANK_VALVE::getBlock, null,
-            (builder, overlay) -> builder.workableCasingRenderer(
+            CASING_BRONZE_BRICKS, BRONZE_TANK_VALVE::getBlock,
+            null,
+            (builder, overlay) -> builder.workableCasingModel(
                     GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"), overlay));
 
-    public static final MachineDefinition[] HYDRATOR = GTMachineUtils.registerSimpleMachines("hydrator",
-            ReFactoryCoreRecipeTypes.HYDRATOR_RECIPES, GTMachineUtils.hvCappedTankSizeFunction);
+    public static final MachineDefinition[] HYDRATOR = GTMachineUtils.registerSimpleMachines(ReFactoryRegistries.REGISTRATE,
+            "hydrator", ReFactoryCoreRecipeTypes.HYDRATOR_RECIPES, GTMachineUtils.hvCappedTankSizeFunction);
 
     public static void init() {}
 }

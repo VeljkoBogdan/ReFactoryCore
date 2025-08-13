@@ -9,16 +9,17 @@ import com.gregtechceu.gtceu.api.gui.UITemplate;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.feature.multiblock.IDisplayUIMachine;
+import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableMultiblockMachine;
 import com.gregtechceu.gtceu.api.machine.steam.SteamEnergyRecipeHandler;
 import com.gregtechceu.gtceu.api.machine.trait.NotifiableFluidTank;
+import com.gregtechceu.gtceu.api.machine.trait.RecipeHandlerList;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 import com.gregtechceu.gtceu.api.recipe.RecipeHelper;
 import com.gregtechceu.gtceu.api.recipe.content.ContentModifier;
 import com.gregtechceu.gtceu.api.recipe.modifier.ModifierFunction;
 import com.gregtechceu.gtceu.api.recipe.modifier.ParallelLogic;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
-import com.gregtechceu.gtceu.common.machine.multiblock.part.SteamHatchPartMachine;
 import com.gregtechceu.gtceu.config.ConfigHolder;
 
 import com.lowdragmc.lowdraglib.gui.modular.ModularUI;
@@ -34,7 +35,6 @@ import net.minecraft.world.entity.player.Player;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -45,6 +45,9 @@ public class WeakSteamParallelMultiblockMachine extends WorkableMultiblockMachin
     public static final int MAX_PARALLELS = 8;
     public static final double CONVERSION_RATE = 0.5D;
 
+    @Nullable
+    private SteamEnergyRecipeHandler steamEnergy = null;
+
     public WeakSteamParallelMultiblockMachine(IMachineBlockEntity holder, Object... args) {
         super(holder, args);
     }
@@ -53,23 +56,24 @@ public class WeakSteamParallelMultiblockMachine extends WorkableMultiblockMachin
     public void onStructureFormed() {
         super.onStructureFormed();
 
-        var handlers = capabilitiesProxy.get(IO.IN, FluidRecipeCapability.CAP);
-        if (handlers == null) return;
-        var itr = handlers.iterator();
-        while (itr.hasNext()) {
-            var handler = itr.next();
-            if (handler instanceof NotifiableFluidTank tank) {
-                if (tank.getFluidInTank(0).getFluid() == GTMaterials.Steam.getFluid()) {
-                    itr.remove();
-                    if (((NotifiableFluidTank) handler).getMachine() instanceof SteamHatchPartMachine) {
-                        capabilitiesProxy.put(IO.IN, EURecipeCapability.CAP, new ArrayList<>());
+        for (var part : getParts()) {
+            var handlers = part.getRecipeHandlers();
+            for (var hl : handlers) {
+                if (!hl.isValid(IO.IN)) continue;
+                for (var fluidHandler : hl.getCapability(FluidRecipeCapability.CAP)) {
+                    if (!(fluidHandler instanceof NotifiableFluidTank nft)) continue;
+                    if (nft.isFluidValid(0, GTMaterials.Steam.getFluid(1)) &&
+                            PartAbility.STEAM.isApplicable(part.self().getDefinition().getBlock())) {
+                        steamEnergy = new SteamEnergyRecipeHandler(nft, CONVERSION_RATE);
+                        addHandlerList(RecipeHandlerList.of(IO.IN, steamEnergy));
+                        return;
                     }
-                    capabilitiesProxy.get(IO.IN, EURecipeCapability.CAP)
-                            .add(new SteamEnergyRecipeHandler(tank, CONVERSION_RATE));
-                    return;
+
                 }
-                continue;
             }
+        }
+        if (steamEnergy == null) {
+            onStructureInvalid();
         }
     }
 
@@ -91,8 +95,8 @@ public class WeakSteamParallelMultiblockMachine extends WorkableMultiblockMachin
     public void addDisplayText(List<Component> textList) {
         IDisplayUIMachine.super.addDisplayText(textList);
         if (isFormed()) {
-            var handlers = capabilitiesProxy.get(IO.IN, EURecipeCapability.CAP);
-            if (handlers != null && handlers.size() > 0 &&
+            var handlers = getCapabilitiesFlat(IO.IN, EURecipeCapability.CAP);
+            if (!handlers.isEmpty() &&
                     handlers.get(0) instanceof SteamEnergyRecipeHandler steamHandler) {
                 if (steamHandler.getCapacity() > 0) {
                     long steamStored = steamHandler.getStored();
