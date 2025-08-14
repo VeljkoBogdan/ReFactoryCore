@@ -1,5 +1,7 @@
-// 1.20.1	2025-08-13T02:36:29.9215398	Registrate Provider for refactorycore [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.20.1	2025-08-14T14:03:13.8621713	Registrate Provider for refactorycore [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 7ad0b4edd386247c00879fc6a0fbaf4b36b558b8 assets/refactorycore/blockstates/advanced_primitive_blast_furnace.json
+52822cdb3931bcb327b9424fbc17eda155d21094 assets/refactorycore/blockstates/bronze_multiblock_tank.json
+09b37fa2951d5b45f6b729f04b08c74ce565431a assets/refactorycore/blockstates/bronze_tank_valve.json
 14d247590220777feed4db85654a5d913b770c58 assets/refactorycore/blockstates/ev_hydrator.json
 0801f9d570d5c5ad2e33603fbfd9c1193c125e43 assets/refactorycore/blockstates/hv_hydrator.json
 37ab3211f0577fdc9f51e80a882bd294f571a2b2 assets/refactorycore/blockstates/iv_hydrator.json
@@ -16,9 +18,11 @@ bed009901a79e7bcf6a9d6c838cb4777d27ab75a assets/refactorycore/blockstates/uiv_hy
 06a191e2e6a115d6d312157e0de7496337eb99af assets/refactorycore/blockstates/uv_hydrator.json
 acd6e0c8e46b16ca8ae5594a091812aadae6cf18 assets/refactorycore/blockstates/uxv_hydrator.json
 1bd830de512778d7e87c3f2c229858af98a7d752 assets/refactorycore/blockstates/zpm_hydrator.json
-bd10a5b4dd0618b523ab31caeef99a941606cf88 assets/refactorycore/lang/en_ud.json
-c6b273e15b474869ef74e12cecfcdf0ebcda5bea assets/refactorycore/lang/en_us.json
+6845a18922e00d3dd5d7d4c1d59edc19c5c310cd assets/refactorycore/lang/en_ud.json
+b151bfbca87ccb6b9d201ebc4aba6c1831f17ff5 assets/refactorycore/lang/en_us.json
 86095f68e9654219610ed1a0d256fb0a1408441e assets/refactorycore/models/block/machine/advanced_primitive_blast_furnace.json
+fc054434e27ff76245cdadf88009270704ed8661 assets/refactorycore/models/block/machine/bronze_multiblock_tank.json
+c20555cd9983642d430fcb6d3c60fb9e5c19a355 assets/refactorycore/models/block/machine/bronze_tank_valve.json
 d98ca35286338806be75d1c74b3eecabf8592ec8 assets/refactorycore/models/block/machine/ev_hydrator.json
 0e7360fafaf2ef7681a38b15680c6360a4433873 assets/refactorycore/models/block/machine/hv_hydrator.json
 f2803956897be32b99d0b0832d522f3c9b65a788 assets/refactorycore/models/block/machine/iv_hydrator.json
@@ -36,6 +40,8 @@ afaba21aadd62487e6b91ee77aea0895a87adb31 assets/refactorycore/models/block/machi
 fe47f594e98ca98d5e1ace9cb5601fa334d33132 assets/refactorycore/models/block/machine/uxv_hydrator.json
 f0ae735e9ea96f86c0735fb3cd0d163537f798bb assets/refactorycore/models/block/machine/zpm_hydrator.json
 8e93050b8ee64107df70244b96c3da51511e9cd4 assets/refactorycore/models/item/advanced_primitive_blast_furnace.json
+5d64b565c95ab16328654b7bf9f2d08b074c9e08 assets/refactorycore/models/item/bronze_multiblock_tank.json
+ebac5ee42d31632029b498d6eec02fdb10c88e81 assets/refactorycore/models/item/bronze_tank_valve.json
 a148c5d1e7eab9430073ea8c88302001c73b2c75 assets/refactorycore/models/item/ev_hydrator.json
 c6e366c970d6fc3a79723a6d82da8c493247974b assets/refactorycore/models/item/hv_hydrator.json
 73a965ef414e6f1d690c7b3c1ca330c5b2b8a97a assets/refactorycore/models/item/iv_hydrator.json

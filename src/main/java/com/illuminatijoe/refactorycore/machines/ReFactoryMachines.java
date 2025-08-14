@@ -1,6 +1,5 @@
 package com.illuminatijoe.refactorycore.machines;
 
-import com.gregtechceu.gtceu.common.registry.GTRegistration;
 import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.machines.multiblock.other.APBFMachine;
@@ -165,17 +164,17 @@ public class ReFactoryMachines {
             .register();
 
     public static final MachineDefinition BRONZE_TANK_VALVE = GTMachineUtils.registerTankValve(
-            "bronze_tank_valve", "Bronze Tank Valve", true,
+            ReFactoryRegistries.REGISTRATE, "bronze_tank_valve", "Bronze Tank Valve", true,
             (builder, overlay) -> builder.workableCasingModel(
                     GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"), overlay));
     public static final MultiblockMachineDefinition BRONZE_MULTIBLOCK_TANK = GTMachineUtils.registerMultiblockTank(
-            "bronze_multiblock_tank", "Bronze Multiblock Tank", 500 * 1000,
-            CASING_BRONZE_BRICKS, BRONZE_TANK_VALVE::getBlock,
-            null,
+            ReFactoryRegistries.REGISTRATE, "bronze_multiblock_tank", "Bronze Multiblock Tank", 500 * 1000,
+            CASING_BRONZE_BRICKS, BRONZE_TANK_VALVE::getBlock, null,
             (builder, overlay) -> builder.workableCasingModel(
                     GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"), overlay));
 
-    public static final MachineDefinition[] HYDRATOR = GTMachineUtils.registerSimpleMachines(ReFactoryRegistries.REGISTRATE,
+    public static final MachineDefinition[] HYDRATOR = GTMachineUtils.registerSimpleMachines(
+            ReFactoryRegistries.REGISTRATE,
             "hydrator", ReFactoryCoreRecipeTypes.HYDRATOR_RECIPES, GTMachineUtils.hvCappedTankSizeFunction);
 
     public static void init() {}
