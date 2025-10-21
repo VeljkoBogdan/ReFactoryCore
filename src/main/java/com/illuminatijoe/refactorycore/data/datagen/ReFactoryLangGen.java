@@ -28,12 +28,16 @@ public class ReFactoryLangGen {
         replace(provider, "block.gtceu.uiv_hydrator", "Epic Hydrator III");
         replace(provider, "block.gtceu.uxv_hydrator", "Epic Hydrator IV");
         replace(provider, "block.gtceu.opv_hydrator", "Legendary Hydrator");
+        replace(provider, "block.gtceu.steam_separator", "Steam Separator");
+        replace(provider, "block.gtceu.steam_foundry", "Steam Foundry");
 
         // Recipes
         replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");
         replace(provider, "gtceu.hydrator", "Hydrating");
 
         // Tooltips
+        replace(provider, "tooltip.gtceu.steam_foundry.0", "Large alloy smelter");
+        replace(provider, "tooltip.gtceu.steam_separator.0", "Large centrifuge");
         replace(provider, "tooltip.gtceu.steam_blender.0", "Steam multiblock mixer");
         replace(provider, "tooltip.gtceu.steam_blender.1", "§7Processes up to 8 recipes in parallel");
         replace(provider, "tooltip.gtceu.steam_borer.0", "Steam multiblock lathe");

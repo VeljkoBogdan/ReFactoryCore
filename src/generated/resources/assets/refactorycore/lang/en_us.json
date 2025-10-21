@@ -11,7 +11,9 @@
   "block.gtceu.opv_hydrator": "Legendary Hydrator",
   "block.gtceu.steam_blender": "Steam Blender",
   "block.gtceu.steam_borer": "Steam Borer",
+  "block.gtceu.steam_foundry": "Steam Foundry",
   "block.gtceu.steam_large_extractor": "Large Steam Extractor",
+  "block.gtceu.steam_separator": "Steam Separator",
   "block.gtceu.uev_hydrator": "Epic Hydrator II",
   "block.gtceu.uhv_hydrator": "Epic Hydrator",
   "block.gtceu.uiv_hydrator": "Epic Hydrator III",
@@ -30,7 +32,9 @@
   "block.refactorycore.opv_hydrator": "§9§lLegendary Hydrator §r",
   "block.refactorycore.steam_blender": "Steam Blender",
   "block.refactorycore.steam_borer": "Steam Borer",
+  "block.refactorycore.steam_foundry": "Steam Foundry",
   "block.refactorycore.steam_large_extractor": "Steam Large Extractor",
+  "block.refactorycore.steam_separator": "Steam Separator",
   "block.refactorycore.uev_hydrator": "§aEpic Hydrator II§r",
   "block.refactorycore.uhv_hydrator": "§4Epic Hydrator §r",
   "block.refactorycore.uiv_hydrator": "§2Epic Hydrator III§r",
@@ -55,6 +59,8 @@
   "tooltip.gtceu.steam_blender.1": "§7Processes up to 8 recipes in parallel",
   "tooltip.gtceu.steam_borer.0": "Steam multiblock lathe",
   "tooltip.gtceu.steam_borer.1": "§7Processes up to 8 recipes in parallel",
+  "tooltip.gtceu.steam_foundry.0": "Large alloy smelter",
   "tooltip.gtceu.steam_large_extractor.0": "Steam multiblock extractor",
-  "tooltip.gtceu.steam_large_extractor.1": "§7Processes up to 8 recipes in parallel"
+  "tooltip.gtceu.steam_large_extractor.1": "§7Processes up to 8 recipes in parallel",
+  "tooltip.gtceu.steam_separator.0": "Large centrifuge"
 }

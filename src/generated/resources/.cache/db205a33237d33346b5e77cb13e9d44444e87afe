@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-14T14:03:13.8621713	Registrate Provider for refactorycore [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.20.1	2025-10-21T16:57:39.4109523	Registrate Provider for refactorycore [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 7ad0b4edd386247c00879fc6a0fbaf4b36b558b8 assets/refactorycore/blockstates/advanced_primitive_blast_furnace.json
 52822cdb3931bcb327b9424fbc17eda155d21094 assets/refactorycore/blockstates/bronze_multiblock_tank.json
 09b37fa2951d5b45f6b729f04b08c74ce565431a assets/refactorycore/blockstates/bronze_tank_valve.json
@@ -11,15 +11,17 @@ ecd28232b7a04e671e99d47ac680a25631e17a45 assets/refactorycore/blockstates/luv_hy
 60692f2d3ffd9b633bc896d438d720a8ea9649a0 assets/refactorycore/blockstates/opv_hydrator.json
 a95c8929774244965d2caa6a3544f43c8de76d08 assets/refactorycore/blockstates/steam_blender.json
 3fbbcdb83d36c5ddbcd51b703d7071719bf6fb06 assets/refactorycore/blockstates/steam_borer.json
+597312b5bd7216aef0a7a17b85f54841fc4c7535 assets/refactorycore/blockstates/steam_foundry.json
 a537518ce0ee62180ebf5d426893ad8ecf20653e assets/refactorycore/blockstates/steam_large_extractor.json
+67a8e839ea1684ce027493eb0e1845b1bbe45a0f assets/refactorycore/blockstates/steam_separator.json
 8a3566b13ebe5e0bd0a21eb5a67dc9fb7c594b09 assets/refactorycore/blockstates/uev_hydrator.json
 9ca25332f4bf34e0e6d43ca582e4136773ead2b6 assets/refactorycore/blockstates/uhv_hydrator.json
 bed009901a79e7bcf6a9d6c838cb4777d27ab75a assets/refactorycore/blockstates/uiv_hydrator.json
 06a191e2e6a115d6d312157e0de7496337eb99af assets/refactorycore/blockstates/uv_hydrator.json
 acd6e0c8e46b16ca8ae5594a091812aadae6cf18 assets/refactorycore/blockstates/uxv_hydrator.json
 1bd830de512778d7e87c3f2c229858af98a7d752 assets/refactorycore/blockstates/zpm_hydrator.json
-6845a18922e00d3dd5d7d4c1d59edc19c5c310cd assets/refactorycore/lang/en_ud.json
-b151bfbca87ccb6b9d201ebc4aba6c1831f17ff5 assets/refactorycore/lang/en_us.json
+1c7b6d72ddfd2f23688847645c1b1e89796af733 assets/refactorycore/lang/en_ud.json
+3c81e6b921880145051280a136d5d0683a648f24 assets/refactorycore/lang/en_us.json
 86095f68e9654219610ed1a0d256fb0a1408441e assets/refactorycore/models/block/machine/advanced_primitive_blast_furnace.json
 fc054434e27ff76245cdadf88009270704ed8661 assets/refactorycore/models/block/machine/bronze_multiblock_tank.json
 c20555cd9983642d430fcb6d3c60fb9e5c19a355 assets/refactorycore/models/block/machine/bronze_tank_valve.json
@@ -32,7 +34,9 @@ f2803956897be32b99d0b0832d522f3c9b65a788 assets/refactorycore/models/block/machi
 71d5d54a5c83a1f8ef1cc28ba8b5d3d95bf0f6d6 assets/refactorycore/models/block/machine/opv_hydrator.json
 a2b21c00c14311f17e0d9ef15120fe054637a1b5 assets/refactorycore/models/block/machine/steam_blender.json
 31d7db13b8bde36ead4d2871ca7fc2bada568c9b assets/refactorycore/models/block/machine/steam_borer.json
+8034979e4b3b727c6a8a425bb0bffa4c33c947cb assets/refactorycore/models/block/machine/steam_foundry.json
 f0c9e936d9bfac26e5aa9391d27d158386937dbd assets/refactorycore/models/block/machine/steam_large_extractor.json
+41e7730da814002b896af47c0b3bef91ffdd02d4 assets/refactorycore/models/block/machine/steam_separator.json
 afaba21aadd62487e6b91ee77aea0895a87adb31 assets/refactorycore/models/block/machine/uev_hydrator.json
 8cbbbcddc76e0b82e0fe962e7074534b1c5e1da8 assets/refactorycore/models/block/machine/uhv_hydrator.json
 4fba5ae098906eb9dfcb7b11cd5d8a0c27d772fe assets/refactorycore/models/block/machine/uiv_hydrator.json
@@ -51,7 +55,9 @@ b887cbb1c407931ec8f3bff6337396588f843c4e assets/refactorycore/models/item/mv_hyd
 d151b27ec4a1d881e24b5266f65a9112b82bfb07 assets/refactorycore/models/item/opv_hydrator.json
 07d70565daf7a9d88dc2bda393625680e96e6f20 assets/refactorycore/models/item/steam_blender.json
 513f1574a757c2d8320b3a04265b922a1033a452 assets/refactorycore/models/item/steam_borer.json
+e824fae54ae0a15c50e975f203ac4993c00e33bd assets/refactorycore/models/item/steam_foundry.json
 d95dd79325dfa23dbff0da08ef01cec4cd1112b0 assets/refactorycore/models/item/steam_large_extractor.json
+b90821f2b058dd575c5033fe66cb09e6845ed8ba assets/refactorycore/models/item/steam_separator.json
 dfd172ea7cbccfe81d20ffec35ae23c75d863c72 assets/refactorycore/models/item/uev_hydrator.json
 d550c82e56f8659cc9f2107136a79c35454cb1e4 assets/refactorycore/models/item/uhv_hydrator.json
 6bbe18d4d6cc9f50a4912dccb4762b701ffb156f assets/refactorycore/models/item/uiv_hydrator.json

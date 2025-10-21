@@ -11,7 +11,9 @@
   "block.gtceu.opv_hydrator": "ɹoʇɐɹpʎH ʎɹɐpuǝbǝꞀ",
   "block.gtceu.steam_blender": "ɹǝpuǝןᗺ ɯɐǝʇS",
   "block.gtceu.steam_borer": "ɹǝɹoᗺ ɯɐǝʇS",
+  "block.gtceu.steam_foundry": "ʎɹpunoℲ ɯɐǝʇS",
   "block.gtceu.steam_large_extractor": "ɹoʇɔɐɹʇxƎ ɯɐǝʇS ǝbɹɐꞀ",
+  "block.gtceu.steam_separator": "ɹoʇɐɹɐdǝS ɯɐǝʇS",
   "block.gtceu.uev_hydrator": "II ɹoʇɐɹpʎH ɔıdƎ",
   "block.gtceu.uhv_hydrator": "ɹoʇɐɹpʎH ɔıdƎ",
   "block.gtceu.uiv_hydrator": "III ɹoʇɐɹpʎH ɔıdƎ",
@@ -30,7 +32,9 @@
   "block.refactorycore.opv_hydrator": "ɹ§ ɹoʇɐɹpʎH ʎɹɐpuǝbǝꞀן§6§",
   "block.refactorycore.steam_blender": "ɹǝpuǝןᗺ ɯɐǝʇS",
   "block.refactorycore.steam_borer": "ɹǝɹoᗺ ɯɐǝʇS",
+  "block.refactorycore.steam_foundry": "ʎɹpunoℲ ɯɐǝʇS",
   "block.refactorycore.steam_large_extractor": "ɹoʇɔɐɹʇxƎ ǝbɹɐꞀ ɯɐǝʇS",
+  "block.refactorycore.steam_separator": "ɹoʇɐɹɐdǝS ɯɐǝʇS",
   "block.refactorycore.uev_hydrator": "ɹ§II ɹoʇɐɹpʎH ɔıdƎɐ§",
   "block.refactorycore.uhv_hydrator": "ɹ§ ɹoʇɐɹpʎH ɔıdƎㄣ§",
   "block.refactorycore.uiv_hydrator": "ɹ§III ɹoʇɐɹpʎH ɔıdƎᄅ§",
@@ -55,6 +59,8 @@
   "tooltip.gtceu.steam_blender.1": "ןǝןןɐɹɐd uı sǝdıɔǝɹ 8 oʇ dn sǝssǝɔoɹԀㄥ§",
   "tooltip.gtceu.steam_borer.0": "ǝɥʇɐן ʞɔoןqıʇןnɯ ɯɐǝʇS",
   "tooltip.gtceu.steam_borer.1": "ןǝןןɐɹɐd uı sǝdıɔǝɹ 8 oʇ dn sǝssǝɔoɹԀㄥ§",
+  "tooltip.gtceu.steam_foundry.0": "ɹǝʇןǝɯs ʎoןןɐ ǝbɹɐꞀ",
   "tooltip.gtceu.steam_large_extractor.0": "ɹoʇɔɐɹʇxǝ ʞɔoןqıʇןnɯ ɯɐǝʇS",
-  "tooltip.gtceu.steam_large_extractor.1": "ןǝןןɐɹɐd uı sǝdıɔǝɹ 8 oʇ dn sǝssǝɔoɹԀㄥ§"
+  "tooltip.gtceu.steam_large_extractor.1": "ןǝןןɐɹɐd uı sǝdıɔǝɹ 8 oʇ dn sǝssǝɔoɹԀㄥ§",
+  "tooltip.gtceu.steam_separator.0": "ǝbnɟıɹʇuǝɔ ǝbɹɐꞀ"
 }
