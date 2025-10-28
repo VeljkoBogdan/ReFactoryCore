@@ -1,14 +1,20 @@
 package com.illuminatijoe.refactorycore;
 
 import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
+import com.illuminatijoe.refactorycore.api.capabilities.recipe.LPRecipeCapability;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipes;
 
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
+import com.gregtechceu.gtceu.api.addon.events.KJSRecipeKeyEvent;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
+import com.gregtechceu.gtceu.integration.kjs.recipe.components.ContentJS;
 
 import net.minecraft.data.recipes.FinishedRecipe;
+
+import com.mojang.datafixers.util.Pair;
+import dev.latvian.mods.kubejs.recipe.component.NumberComponent;
 
 import java.util.function.Consumer;
 
@@ -42,15 +48,14 @@ public class ReFactoryCoreGTAddon implements IGTAddon {
 
     // If you have custom ingredient types, uncomment this & change to match your capability.
     // KubeJS WILL REMOVE YOUR RECIPES IF THESE ARE NOT REGISTERED.
-    /*
-     * public static final ContentJS<Double> PRESSURE_IN = new ContentJS<>(NumberComponent.ANY_DOUBLE,
-     * GregitasRecipeCapabilities.PRESSURE, false);
-     * public static final ContentJS<Double> PRESSURE_OUT = new ContentJS<>(NumberComponent.ANY_DOUBLE,
-     * GregitasRecipeCapabilities.PRESSURE, true);
-     * 
-     * @Override
-     * public void registerRecipeKeys(KJSRecipeKeyEvent event) {
-     * event.registerKey(CustomRecipeCapabilities.PRESSURE, Pair.of(PRESSURE_IN, PRESSURE_OUT));
-     * }
-     */
+
+    public static final ContentJS<Integer> LP_IN = new ContentJS<>(NumberComponent.ANY_INT,
+            LPRecipeCapability.CAP, false);
+    public static final ContentJS<Integer> LP_OUT = new ContentJS<>(NumberComponent.ANY_INT,
+            LPRecipeCapability.CAP, true);
+
+    @Override
+    public void registerRecipeKeys(KJSRecipeKeyEvent event) {
+        event.registerKey(LPRecipeCapability.CAP, Pair.of(LP_IN, LP_OUT));
+    }
 }

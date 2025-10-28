@@ -1,23 +1,27 @@
 package com.illuminatijoe.refactorycore.machines;
 
-import com.gregtechceu.gtceu.common.machine.multiblock.steam.SteamParallelMultiblockMachine;
-import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.machines.multiblock.other.APBFMachine;
 import com.illuminatijoe.refactorycore.machines.multiblock.steam.WeakSteamParallelMultiblockMachine;
+import com.illuminatijoe.refactorycore.machines.part.LPHatchPartMachine;
+import com.illuminatijoe.refactorycore.machines.part.ReFactoryPartAbilities;
 
 import com.gregtechceu.gtceu.GTCEu;
+import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.capability.recipe.ItemRecipeCapability;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
+import com.gregtechceu.gtceu.api.machine.property.GTMachineModelProperties;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.client.renderer.machine.DynamicRenderHelper;
 import com.gregtechceu.gtceu.common.block.BoilerFireboxType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
+import com.gregtechceu.gtceu.common.machine.multiblock.steam.SteamParallelMultiblockMachine;
 
 import net.minecraft.network.chat.Component;
 
@@ -27,6 +31,13 @@ import static com.gregtechceu.gtceu.common.data.models.GTMachineModels.createWor
 import static com.illuminatijoe.refactorycore.api.ReFactoryRegistries.REGISTRATE;
 
 public class ReFactoryMachines {
+
+    public static final MachineDefinition[] LP_IMPORT_HATCH = registerLPHatch(
+            "lp_input_hatch", "LP Input Hatch",
+            IO.IN, GTMachineUtils.MULTI_HATCH_TIERS, ReFactoryPartAbilities.IMPORT_LP);
+    public static final MachineDefinition[] LP_EXPORT_HATCH = registerLPHatch(
+            "lp_output_hatch", "LP Output Hatch",
+            IO.OUT, GTMachineUtils.MULTI_HATCH_TIERS, ReFactoryPartAbilities.EXPORT_LP);
 
     public static final MachineDefinition STEAM_CENTRIFUGE = REGISTRATE
             .multiblock("steam_separator", SteamParallelMultiblockMachine::new)
@@ -72,10 +83,10 @@ public class ReFactoryMachines {
                             .or(Predicates.abilities(PartAbility.STEAM_EXPORT_ITEMS).setPreviewCount(1)))
                     .build())
             .model(createWorkableCasingMachineModel(
-                            GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
-                            GTCEu.id("block/machines/alloy_smelter"))
-                    .andThen(b -> b.addDynamicRenderer(() ->
-                            DynamicRenderHelper.makeBoilerPartRender(BoilerFireboxType.BRONZE_FIREBOX, CASING_BRONZE_BRICKS))))
+                    GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
+                    GTCEu.id("block/machines/alloy_smelter"))
+                    .andThen(b -> b.addDynamicRenderer(() -> DynamicRenderHelper
+                            .makeBoilerPartRender(BoilerFireboxType.BRONZE_FIREBOX, CASING_BRONZE_BRICKS))))
             .tooltips(Component.translatable("tooltip.gtceu.steam_foundry.0"))
             .register();
 
@@ -230,6 +241,29 @@ public class ReFactoryMachines {
     public static final MachineDefinition[] HYDRATOR = GTMachineUtils.registerSimpleMachines(
             REGISTRATE,
             "hydrator", ReFactoryCoreRecipeTypes.HYDRATOR_RECIPES, GTMachineUtils.hvCappedTankSizeFunction);
+
+    public static MachineDefinition[] registerLPHatch(String name, String displayName, IO io, int[] tiers,
+                                                      PartAbility... abilities) {
+        return GTMachineUtils.registerTieredMachines(REGISTRATE, name,
+                (holder, tier) -> new LPHatchPartMachine(holder, tier, io),
+                (tier, builder) -> builder
+                        .langValue(GTValues.VNF[tier] + ' ' + displayName)
+                        .abilities(abilities)
+                        .rotationState(RotationState.ALL)
+                        .modelProperty(GTMachineModelProperties.IS_FORMED, false)
+                        .overlayTieredHullModel("lp_hatch")
+                        .tooltipBuilder((item, tooltip) -> {
+                            if (io == IO.IN) {
+                                tooltip.add(Component.translatable("tooltip.refactorycore.lp_hatch.input",
+                                        LPHatchPartMachine.getMaxConsumption(tier)));
+                            } else {
+                                tooltip.add(Component.translatable("tooltip.refactorycore.lp_hatch.output",
+                                        LPHatchPartMachine.getMaxCapacity(tier)));
+                            }
+                        })
+                        .register(),
+                tiers);
+    }
 
     public static void init() {}
 }

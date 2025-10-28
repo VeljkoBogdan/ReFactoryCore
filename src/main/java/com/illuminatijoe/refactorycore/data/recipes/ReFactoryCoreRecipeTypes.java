@@ -1,5 +1,7 @@
 package com.illuminatijoe.refactorycore.data.recipes;
 
+import com.illuminatijoe.refactorycore.data.ReFactorySounds;
+
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
@@ -24,6 +26,13 @@ public class ReFactoryCoreRecipeTypes {
             .setSlotOverlay(false, false, GuiTextures.DUST_OVERLAY)
             .setProgressBar(GuiTextures.PROGRESS_BAR_BATH, LEFT_TO_RIGHT)
             .setSound(GTSoundEntries.BATH);
+
+    public static final GTRecipeType BLOODFORGE = GTRecipeTypes.register(
+            "bloodforge", GTRecipeTypes.MULTIBLOCK)
+            .setMaxIOSize(6, 3, 3, 3)
+            .setEUIO(IO.IN)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_BATH, LEFT_TO_RIGHT)
+            .setSound(ReFactorySounds.BLOODFORGE);
 
     public static void init() {}
 }

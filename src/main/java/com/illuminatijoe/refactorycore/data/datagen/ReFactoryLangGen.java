@@ -30,12 +30,16 @@ public class ReFactoryLangGen {
         replace(provider, "block.gtceu.opv_hydrator", "Legendary Hydrator");
         replace(provider, "block.gtceu.steam_separator", "Steam Separator");
         replace(provider, "block.gtceu.steam_foundry", "Steam Foundry");
+        replace(provider, "block.gtceu.bloodforge", "§cBloodforge");
 
         // Recipes
         replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");
         replace(provider, "gtceu.hydrator", "Hydrating");
 
         // Tooltips
+        provider.add("tooltip.refactorycore.lp_hatch.input", "Max Recipe Input: %s");
+        provider.add("tooltip.refactorycore.lp_hatch.output", "Max Network Capacity: %s");
+        replace(provider, "tooltip.gtceu.bloodforge.0", "§7Sanguine machinery");
         replace(provider, "tooltip.gtceu.steam_foundry.0", "Large alloy smelter");
         replace(provider, "tooltip.gtceu.steam_separator.0", "Large centrifuge");
         replace(provider, "tooltip.gtceu.steam_blender.0", "Steam multiblock mixer");
@@ -57,5 +61,16 @@ public class ReFactoryLangGen {
                 "Slowly moistens",
                 "Moisturizes unmoisturized",
                 "Shower in bulk");
+
+        // GUI
+        replace(provider, "gui.refactorycore.lp_hatch.label.import", "LP Input Hatch");
+        replace(provider, "gui.refactorycore.lp_hatch.label.export", "LP Output Hatch");
+        replace(provider, "gui.refactorycore.lp_hatch.no_network", "Not attached to a network!");
+        replace(provider, "gui.refactorycore.lp_hatch.owner", "Attached to: %d");
+        replace(provider, "gui.refactorycore.lp_hatch.lp", "Current LP: %s");
+
+        // recipe
+        provider.add("refactorycore.recipe.lp_in", "LP Input: %s");
+        provider.add("refactorycore.recipe.lp_out", "LP Output: %s");
     }
 }

@@ -1,9 +1,13 @@
 package com.illuminatijoe.refactorycore;
 
 import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
+import com.illuminatijoe.refactorycore.api.capabilities.recipe.lookup.MapLPIngredient;
+import com.illuminatijoe.refactorycore.client.ReFactoryCoreClient;
+import com.illuminatijoe.refactorycore.data.ReFactorySounds;
 import com.illuminatijoe.refactorycore.data.datagen.ReFactoryDatagen;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.machines.ReFactoryMachines;
+import com.illuminatijoe.refactorycore.machines.multiblock.MultiblockInit;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
@@ -11,11 +15,12 @@ import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEv
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+import com.gregtechceu.gtceu.api.recipe.lookup.ingredient.MapIngredientTypeManager;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
-import net.minecraft.client.Minecraft;
+import com.lowdragmc.lowdraglib.Platform;
+
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -33,6 +38,8 @@ public class ReFactoryCore {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public ReFactoryCore() {
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
         ReFactoryRegistries.REGISTRATE.registerRegistrate();
         ReFactoryDatagen.init();
 
@@ -49,90 +56,47 @@ public class ReFactoryCore {
         modEventBus.addGenericListener(MachineDefinition.class, this::registerMachines);
         modEventBus.addGenericListener(SoundEntry.class, this::registerSounds);
 
-        // Most other events are fired on Forge's bus.
-        // If we want to use annotations to register event listeners,
-        // we need to register our object like this!
+        if (Platform.isClient()) {
+            ReFactoryCoreClient.init(bus);
+        }
+
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            LOGGER.info("Hello from common setup! This is *after* registries are done, so we can do this:");
-            LOGGER.info("Look, I found a {}!", Items.DIAMOND);
+            MapIngredientTypeManager.registerMapIngredient(Integer.class, MapLPIngredient::convertToMapIngredient);
         });
     }
 
-    private void clientSetup(final FMLClientSetupEvent event) {
-        LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
-    }
+    private void clientSetup(final FMLClientSetupEvent event) {}
 
-    /**
-     * Create a ResourceLocation in the format "modid:path"
-     *
-     * @param path
-     * @return ResourceLocation with the namespace of your mod
-     */
     public static ResourceLocation id(String path) {
         return new ResourceLocation(MOD_ID, path);
     }
 
-    /**
-     * Create a material manager for your mod using GT's API.
-     * You MUST have this if you have custom materials.
-     * Remember to register them not to GT's namespace, but your own.
-     * 
-     * @param event
-     */
     private void addMaterialRegistries(MaterialRegistryEvent event) {
         GTCEuAPI.materialManager.createRegistry(ReFactoryCore.MOD_ID);
     }
 
-    /**
-     * You will also need this for registering custom materials
-     * Call init() from your Material class(es) here
-     * 
-     * @param event
-     */
     private void addMaterials(MaterialEvent event) {
         // CustomMaterials.init();
     }
 
-    /**
-     * (Optional) Used to modify pre-existing materials from GregTech
-     * 
-     * @param event
-     */
     private void modifyMaterials(PostMaterialEvent event) {
         // CustomMaterials.modify();
     }
 
-    /**
-     * Used to register your own new RecipeTypes.
-     * Call init() from your RecipeType class(es) here
-     * 
-     * @param event
-     */
     private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
         ReFactoryCoreRecipeTypes.init();
     }
 
-    /**
-     * Used to register your own new RecipeTypes.
-     * Call init() from your Machine class(es) here
-     * 
-     * @param event
-     */
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
+        MultiblockInit.init();
         ReFactoryMachines.init();
     }
 
-    /**
-     * Used to register your own new sounds
-     * Call init from your Sound class(es) here
-     * 
-     * @param event
-     */
     public void registerSounds(GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry> event) {
-        // CustomSounds.init();
+        ReFactorySounds.init();
     }
 }
