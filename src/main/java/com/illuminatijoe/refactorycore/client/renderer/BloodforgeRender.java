@@ -131,16 +131,26 @@ public class BloodforgeRender extends DynamicRender<WorkableElectricMultiblockMa
     public void renderBloodBall(PoseStack poseStack, MultiBufferSource bufferSource, float totalTick) {
         poseStack.pushPose();
 
+        float trembleAmplitude = 0.04f;
+        float trembleSpeed = 4f;
+        float trembleModSpeed = 0.2f;
+        float variableTremble = 1f +
+                trembleAmplitude * Mth.sin(totalTick * trembleSpeed) * Mth.sin(totalTick * trembleModSpeed);
+
+        float trembleBaseSpeed = 1f;
+        float baseTremble = 1f + Mth.sin(totalTick * trembleBaseSpeed) * trembleAmplitude;
+
         Quaternionf rot = new Quaternionf()
-                .scale(1 + Mth.sin(totalTick / 10) / 3)
-                .rotateXYZ(Mth.sin(totalTick / 20),
-                        Mth.sin(totalTick / 30),
-                        Mth.cos(Mth.HALF_PI + totalTick / 60))
-                .rotateXYZ(55f * Mth.DEG_TO_RAD, 30f * Mth.DEG_TO_RAD, 0);
+                .scale(1 + Mth.sin(totalTick / 20) / 5)
+                .scale(variableTremble)
+                .scale(baseTremble)
+                .rotateXYZ(totalTick / 20,
+                        Mth.sin(totalTick / 20),
+                        Mth.cos(Mth.HALF_PI + totalTick / 40));
 
         poseStack.mulPose(rot);
 
-        ReFactoryRenderBufferHelper.renderSolidSphere(poseStack, bufferSource,
+        ReFactoryRenderBufferHelper.renderSolidSphere(poseStack, bufferSource, bloodBallSprite,
                 0f, 0f, 0f, 1f,
                 16, 8,
                 0.5f, 0.03f, 0.03f, 1.0f);
