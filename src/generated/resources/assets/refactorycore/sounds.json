@@ -1,0 +1,11 @@
+{
+  "bloodforge": {
+    "sounds": [
+      {
+        "type": "file",
+        "name": "refactorycore:bloodforge"
+      }
+    ],
+    "subtitle": "refactorycore.subtitle.bloodforge"
+  }
+}
