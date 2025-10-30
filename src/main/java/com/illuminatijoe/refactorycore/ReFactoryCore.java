@@ -1,6 +1,7 @@
 package com.illuminatijoe.refactorycore;
 
 import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
+import com.illuminatijoe.refactorycore.api.capabilities.ILPContainer;
 import com.illuminatijoe.refactorycore.api.capabilities.recipe.lookup.MapLPIngredient;
 import com.illuminatijoe.refactorycore.client.ReFactoryCoreClient;
 import com.illuminatijoe.refactorycore.data.ReFactorySounds;
@@ -22,7 +23,9 @@ import com.lowdragmc.lowdraglib.Platform;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -98,5 +101,10 @@ public class ReFactoryCore {
 
     public void registerSounds(GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry> event) {
         ReFactorySounds.init();
+    }
+
+    @SubscribeEvent
+    public void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.register(ILPContainer.class);
     }
 }

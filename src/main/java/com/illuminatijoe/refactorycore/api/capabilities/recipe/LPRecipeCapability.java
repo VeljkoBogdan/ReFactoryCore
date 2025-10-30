@@ -15,9 +15,7 @@ import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import org.apache.commons.lang3.mutable.MutableInt;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.Collection;
 import java.util.List;
 
 public class LPRecipeCapability extends RecipeCapability<Integer> {
@@ -38,16 +36,10 @@ public class LPRecipeCapability extends RecipeCapability<Integer> {
         return modifier.apply(content);
     }
 
-    @Override
-    public @Nullable List<AbstractMapIngredient> getDefaultMapIngredient(Object object) {
+    public List<AbstractMapIngredient> convertToMapIngredient(Object ingredient) {
         List<AbstractMapIngredient> ingredients = new ObjectArrayList<>(1);
-        if (object instanceof Integer essence) ingredients.add(new MapLPIngredient(essence));
+        if (ingredient instanceof Integer essence) ingredients.add(new MapLPIngredient(essence));
         return ingredients;
-    }
-
-    @Override
-    public List<Object> compressIngredients(Collection<Object> ingredients) {
-        return super.compressIngredients(ingredients);
     }
 
     @Override

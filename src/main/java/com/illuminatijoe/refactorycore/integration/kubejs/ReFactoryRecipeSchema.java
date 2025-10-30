@@ -11,20 +11,22 @@ import static com.gregtechceu.gtceu.integration.kjs.recipe.GTRecipeSchema.*;
 
 public interface ReFactoryRecipeSchema {
 
-    @SuppressWarnings("InnerClassMayBeStatic")
     @Accessors(chain = true, fluent = true)
     class ReFactoryRecipeJS extends GTRecipeSchema.GTRecipeJS {
 
         public GTRecipeSchema.GTRecipeJS lpInput(int essence) {
-            return this.input(LPRecipeCapability.CAP, essence);
+            this.input(LPRecipeCapability.CAP, essence);
+            return this;
         }
 
         public GTRecipeSchema.GTRecipeJS lpOutput(int essence) {
-            return this.output(LPRecipeCapability.CAP, essence);
+            this.output(LPRecipeCapability.CAP, essence);
+            return this;
         }
     }
 
-    RecipeSchema SCHEMA = new RecipeSchema(ReFactoryRecipeJS.class, ReFactoryRecipeJS::new, DURATION, DATA, CONDITIONS,
+    RecipeSchema SCHEMA = new RecipeSchema(ReFactoryRecipeJS.class, ReFactoryRecipeJS::new,
+            DURATION, DATA, CONDITIONS,
             ALL_INPUTS, ALL_TICK_INPUTS, ALL_OUTPUTS, ALL_TICK_OUTPUTS,
             INPUT_CHANCE_LOGICS, OUTPUT_CHANCE_LOGICS, TICK_INPUT_CHANCE_LOGICS, TICK_OUTPUT_CHANCE_LOGICS, CATEGORY)
             .constructor((recipe, schemaType, keys, from) -> recipe.id(from.getValue(recipe, ID)), ID)

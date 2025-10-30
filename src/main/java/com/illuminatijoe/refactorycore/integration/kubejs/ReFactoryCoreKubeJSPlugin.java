@@ -1,7 +1,6 @@
 package com.illuminatijoe.refactorycore.integration.kubejs;
 
 import com.illuminatijoe.refactorycore.ReFactoryCore;
-import com.illuminatijoe.refactorycore.ReFactoryCoreGTAddon;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.machines.ReFactoryMachines;
 
@@ -50,7 +49,7 @@ public class ReFactoryCoreKubeJSPlugin extends KubeJSPlugin {
 
     @Override
     public void registerRecipeComponents(RecipeComponentFactoryRegistryEvent event) {
-        event.register("lpIn", ReFactoryCoreGTAddon.LP_IN);
-        event.register("lpOut", ReFactoryCoreGTAddon.LP_OUT);
+        event.register("lpInput", ReFactoryRecipeComponent.LP_IN);
+        event.register("lpOutput", ReFactoryRecipeComponent.LP_OUT);
     }
 }

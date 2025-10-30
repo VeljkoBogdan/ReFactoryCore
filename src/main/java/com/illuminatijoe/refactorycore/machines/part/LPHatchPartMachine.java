@@ -90,6 +90,7 @@ public class LPHatchPartMachine extends TieredIOPartMachine {
 
     public static int getMaxConsumption(int tier) {
         return switch (tier) {
+            case GTValues.EV -> 5000;
             case GTValues.IV -> 10000;
             case GTValues.LuV -> 50000;
             case GTValues.ZPM -> 5000000;
