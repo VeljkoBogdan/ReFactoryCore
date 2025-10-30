@@ -1,18 +1,12 @@
 package com.illuminatijoe.refactorycore.data.recipes;
 
-import com.illuminatijoe.refactorycore.api.capabilities.recipe.LPRecipeCapability;
-
-import com.gregtechceu.gtceu.api.GTValues;
-
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.Items;
 
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes.ADVANCED_PRIMITIVE_BLAST_FURNACE_RECIPES;
-import static com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes.BLOODFORGE;
 
 public class ReFactoryCoreRecipes {
 
@@ -168,12 +162,12 @@ public class ReFactoryCoreRecipes {
                 .duration(180 * REDUCED_DURATION)
                 .save(provider);
 
-//        BLOODFORGE.recipeBuilder("dirt_from_dirt")
-//                .inputItems(Items.DIRT)
-//                .input(LPRecipeCapability.CAP, 100)
-//                .outputItems(Items.DIRT)
-//                .duration(400)
-//                .EUt(GTValues.VA[GTValues.HV])
-//                .save(provider);
+        // BLOODFORGE.recipeBuilder("dirt_from_dirt")
+        // .inputItems(Items.DIRT)
+        // .input(LPRecipeCapability.CAP, 100)
+        // .outputItems(Items.DIRT)
+        // .duration(400)
+        // .EUt(GTValues.VA[GTValues.HV])
+        // .save(provider);
     }
 }

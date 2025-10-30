@@ -1,6 +1,7 @@
 package com.illuminatijoe.refactorycore.integration.kubejs;
 
 import com.illuminatijoe.refactorycore.api.capabilities.recipe.ReFactoryRecipeCapabilities;
+
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
 import lombok.experimental.Accessors;
 
