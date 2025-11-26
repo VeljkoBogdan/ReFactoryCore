@@ -1,4 +1,4 @@
-// 1.20.1	2025-10-28T19:55:39.1422008	Registrate Provider for refactorycore [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.20.1	2025-11-26T16:16:17.2822341	Registrate Provider for refactorycore [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 7ad0b4edd386247c00879fc6a0fbaf4b36b558b8 assets/refactorycore/blockstates/advanced_primitive_blast_furnace.json
 65ca776a53d7023ebe59bf12bc0a4212426da508 assets/refactorycore/blockstates/bloodforge.json
 52822cdb3931bcb327b9424fbc17eda155d21094 assets/refactorycore/blockstates/bronze_multiblock_tank.json
@@ -43,8 +43,8 @@ b8e380df8dd896911428612f673e0b5f6046de22 assets/refactorycore/blockstates/uxv_lp
 1bd830de512778d7e87c3f2c229858af98a7d752 assets/refactorycore/blockstates/zpm_hydrator.json
 64b4702860b479e9b630ced9648d49f3494f2ca0 assets/refactorycore/blockstates/zpm_lp_input_hatch.json
 b0b09cb6e6bae4b50abab46ff017e6a12e945948 assets/refactorycore/blockstates/zpm_lp_output_hatch.json
-0770bac60cd879493fb541a6be92fbeb5c0536d3 assets/refactorycore/lang/en_ud.json
-ebe93ce1282e52fa60d2b41af84c1ce0b2d41ece assets/refactorycore/lang/en_us.json
+caea25b59ee1e702c7ddbc986704870a0d11f70a assets/refactorycore/lang/en_ud.json
+f270975bcfc407376253d485b10bd1a5b5379a5b assets/refactorycore/lang/en_us.json
 86095f68e9654219610ed1a0d256fb0a1408441e assets/refactorycore/models/block/machine/advanced_primitive_blast_furnace.json
 009ce12acd6c9dc659ae4d05de8855874791ca69 assets/refactorycore/models/block/machine/bloodforge.json
 fc054434e27ff76245cdadf88009270704ed8661 assets/refactorycore/models/block/machine/bronze_multiblock_tank.json
