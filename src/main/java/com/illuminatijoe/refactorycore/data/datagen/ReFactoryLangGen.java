@@ -35,6 +35,7 @@ public class ReFactoryLangGen {
         // Recipes
         replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");
         replace(provider, "gtceu.hydrator", "Hydrating");
+        replace(provider, "gtceu.bloodforge", "Blood Forging");
 
         // Tooltips
         provider.add("tooltip.refactorycore.lp_hatch.input", "Max Recipe Input: %s");
