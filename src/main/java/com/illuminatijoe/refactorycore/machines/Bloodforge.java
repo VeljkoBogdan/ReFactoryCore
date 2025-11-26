@@ -38,24 +38,17 @@ public class Bloodforge {
                     GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK),
                     GTRecipeModifiers.BATCH_MODE)
             .pattern(definition -> FactoryBlockPattern.start()
-                    .aisle("C       C", "CC  A  CC", "    A    ", "    A    ", "    A    ", "         ", "         ",
-                            "         ", "    A    ", "    A    ")
-                    .aisle("    A    ", "C   A   C", " CCCCCCC ", "  C   C  ", "  C   C  ", "  C   C  ", " DDDDDDD ",
-                            " CC A CC ", "    A    ", "         ")
-                    .aisle("    A    ", "         ", " CC C CC ", " CR   RC ", " CR   RC ", " CRRDRRC ", " DR A RD ",
-                            " CR A RC ", "         ", "         ")
-                    .aisle("         ", "         ", " C CCC C ", "         ", "         ", "  R   R  ", " D     D ",
-                            "    R    ", "         ", "         ")
-                    .aisle(" AA   AA ", "AA     AA", "ACCCCCCCA", "A   S   A", "A       A", "  D   D  ", " DA   AD ",
-                            " AARARAA ", "AA  A  AA", "A       A")
-                    .aisle("         ", "         ", " C CCC C ", "         ", "         ", "  R   R  ", " D     D ",
-                            "    R    ", "         ", "         ")
-                    .aisle("    A    ", "         ", " CC C CC ", " CR   RC ", " CR   RC ", " CRRDRRC ", " DR A RD ",
-                            " CR A RC ", "         ", "         ")
-                    .aisle("    A    ", "C   A   C", " CCCCCCC ", "  C   C  ", "  C   C  ", "  C   C  ", " DDDDDDD ",
-                            " CC A CC ", "    A    ", "         ")
-                    .aisle("C       C", "CC  A  CC", "  AAAAA  ", "  A O A  ", "    A    ", "         ", "         ",
-                            "         ", "    A    ", "    A    ")
+                    // spotless:off
+                    .aisle("C       C", "CC  A  CC", "    A    ", "    A    ", "    A    ", "         ", "         ", "         ", "    A    ", "    A    ")
+                    .aisle("    A    ", "C   A   C", " CCCCCCC ", "  C   C  ", "  C   C  ", "  C   C  ", " DDDDDDD ", " CC A CC ", "    A    ", "         ")
+                    .aisle("    A    ", "         ", " CC C CC ", " CR   RC ", " CR   RC ", " CRRDRRC ", " DR A RD ", " CR A RC ", "         ", "         ")
+                    .aisle("         ", "         ", " C CCC C ", "         ", "         ", "  R   R  ", " D     D ", "    R    ", "         ", "         ")
+                    .aisle(" AA   AA ", "AA     AA", "ACCCCCCCA", "A   S   A", "A       A", "  D   D  ", " DA   AD ", " AARARAA ", "AA  A  AA", "A       A")
+                    .aisle("         ", "         ", " C CCC C ", "         ", "         ", "  R   R  ", " D     D ", "    R    ", "         ", "         ")
+                    .aisle("    A    ", "         ", " CC C CC ", " CR   RC ", " CR   RC ", " CRRDRRC ", " DR A RD ", " CR A RC ", "         ", "         ")
+                    .aisle("    A    ", "C   A   C", " CCCCCCC ", "  C   C  ", "  C   C  ", "  C   C  ", " DDDDDDD ", " CC A CC ", "    A    ", "         ")
+                    .aisle("C       C", "CC  A  CC", "  AAAAA  ", "  A O A  ", "    A    ", "         ", "         ", "         ", "    A    ", "    A    ")
+                    // spotless:on
                     .where('C', Predicates.blocks(BloodMagicBlocks.BLANK_RUNE.get())
                             .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1))
                             .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setExactLimit(1))
