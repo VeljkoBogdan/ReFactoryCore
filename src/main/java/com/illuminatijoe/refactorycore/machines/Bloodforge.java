@@ -60,7 +60,7 @@ public class Bloodforge {
                             .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1))
                             .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setExactLimit(1))
                             .or(Predicates.autoAbilities(ReFactoryCoreRecipeTypes.BLOODFORGE)))
-                    .where('R', Predicates.blocks(GTBlocks.COIL_RTMALLOY.get()))
+                    .where('R', Predicates.blocks(GTBlocks.COIL_NICHROME.get()))
                     .where('D', Predicates.blocks(GCYMBlocks.CASING_NONCONDUCTING.get()))
                     .where('O', Predicates.controller(Predicates.blocks(definition.get())))
                     .where(' ', Predicates.any())
