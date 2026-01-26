@@ -36,6 +36,7 @@ public class ReFactoryLangGen {
         replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");
         replace(provider, "gtceu.hydrator", "Hydrating");
         replace(provider, "gtceu.bloodforge", "Blood Forging");
+        replace(provider, "gtceu.mana_burner", "Mana Burning");
 
         // Tooltips
         provider.add("tooltip.refactorycore.lp_hatch.input", "Max Recipe Input: %s");
@@ -56,6 +57,7 @@ public class ReFactoryLangGen {
         replace(provider, "tooltip.gtceu.advanced_primitive_blast_furnace.2",
                 "§7Processes up to 4 recipes in parallel");
         replace(provider, "tooltip.gtceu.hydrator", "Hydrates stuff");
+        replace(provider, "tooltip.refactorycore.taint_amount", "Current Taint: %s");
 
         // Tiered machine tooltips
         standardTooltips(provider, "gtceu.machine", "hydrator",

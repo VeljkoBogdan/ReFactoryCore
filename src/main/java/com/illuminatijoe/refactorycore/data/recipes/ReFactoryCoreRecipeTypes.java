@@ -34,5 +34,13 @@ public class ReFactoryCoreRecipeTypes {
             .setProgressBar(GuiTextures.PROGRESS_BAR_BATH, LEFT_TO_RIGHT)
             .setSound(ReFactorySounds.BLOODFORGE);
 
+    public static final GTRecipeType MANA_BURNER_FUELS = GTRecipeTypes.register(
+            "mana_burner", GTRecipeTypes.GENERATOR)
+            .setMaxIOSize(0, 0, 1, 1)
+            .setEUIO(IO.OUT)
+            .setSlotOverlay(false, true, true, GuiTextures.CENTRIFUGE_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_GAS_COLLECTOR, LEFT_TO_RIGHT)
+            .setSound(GTSoundEntries.TURBINE);
+
     public static void init() {}
 }

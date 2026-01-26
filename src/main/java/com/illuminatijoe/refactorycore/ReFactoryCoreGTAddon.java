@@ -4,6 +4,7 @@ import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
 import com.illuminatijoe.refactorycore.api.capabilities.recipe.ReFactoryRecipeCapabilities;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipes;
+import com.illuminatijoe.refactorycore.data.recipes.ReFactoryFuelRecipes;
 
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
@@ -45,6 +46,7 @@ public class ReFactoryCoreGTAddon implements IGTAddon {
     public void addRecipes(Consumer<FinishedRecipe> provider) {
         ReFactoryCoreRecipeTypes.init();
         ReFactoryCoreRecipes.init(provider);
+        ReFactoryFuelRecipes.init(provider);
     }
 
     @Override

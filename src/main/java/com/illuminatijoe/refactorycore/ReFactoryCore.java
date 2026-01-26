@@ -6,6 +6,7 @@ import com.illuminatijoe.refactorycore.api.capabilities.recipe.lookup.MapLPIngre
 import com.illuminatijoe.refactorycore.client.ReFactoryCoreClient;
 import com.illuminatijoe.refactorycore.data.ReFactorySounds;
 import com.illuminatijoe.refactorycore.data.datagen.ReFactoryDatagen;
+import com.illuminatijoe.refactorycore.data.materials.ReFactoryMaterials;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.machines.ReFactoryMachines;
 import com.illuminatijoe.refactorycore.machines.multiblock.MultiblockInit;
@@ -83,7 +84,7 @@ public class ReFactoryCore {
     }
 
     private void addMaterials(MaterialEvent event) {
-        // CustomMaterials.init();
+        ReFactoryMaterials.register();
     }
 
     private void modifyMaterials(PostMaterialEvent event) {
