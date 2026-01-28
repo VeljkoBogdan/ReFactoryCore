@@ -42,5 +42,12 @@ public class ReFactoryCoreRecipeTypes {
             .setProgressBar(GuiTextures.PROGRESS_BAR_GAS_COLLECTOR, LEFT_TO_RIGHT)
             .setSound(GTSoundEntries.TURBINE);
 
+    public static final GTRecipeType AURA_ALTAR = GTRecipeTypes.register(
+            "aura_altar", GTRecipeTypes.MULTIBLOCK)
+            .setMaxIOSize(3, 3, 2, 2)
+            .setEUIO(IO.IN)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_GAS_COLLECTOR, LEFT_TO_RIGHT)
+            .setSound(GTSoundEntries.BATH);
+
     public static void init() {}
 }

@@ -55,7 +55,7 @@ public class NotifiableLPContainer extends NotifiableRecipeHandlerTrait<Integer>
     }
 
     private void queryNetwork() {
-        if (this.machine.getOffsetTimer() % 20 == 0) return;
+        if (this.machine.getOffsetTimer() % 20 != 0) return;
 
         SoulNetwork network = this.getNetwork();
         if (network == null) return;

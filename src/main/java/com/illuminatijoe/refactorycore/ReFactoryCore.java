@@ -1,6 +1,7 @@
 package com.illuminatijoe.refactorycore;
 
 import com.illuminatijoe.refactorycore.api.ReFactoryRegistries;
+import com.illuminatijoe.refactorycore.api.capabilities.IAuraContainer;
 import com.illuminatijoe.refactorycore.api.capabilities.ILPContainer;
 import com.illuminatijoe.refactorycore.api.capabilities.recipe.lookup.MapLPIngredient;
 import com.illuminatijoe.refactorycore.client.ReFactoryCoreClient;
@@ -107,5 +108,6 @@ public class ReFactoryCore {
     @SubscribeEvent
     public void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.register(ILPContainer.class);
+        event.register(IAuraContainer.class);
     }
 }

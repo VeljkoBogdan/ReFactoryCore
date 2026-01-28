@@ -1,12 +1,18 @@
 package com.illuminatijoe.refactorycore.data.recipes;
 
+import com.illuminatijoe.refactorycore.api.capabilities.recipe.AuraRecipeCapability;
+
+import com.gregtechceu.gtceu.api.GTValues;
+
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.item.Items;
 
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes.ADVANCED_PRIMITIVE_BLAST_FURNACE_RECIPES;
+import static com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes.AURA_ALTAR;
 
 public class ReFactoryCoreRecipes {
 
@@ -169,5 +175,21 @@ public class ReFactoryCoreRecipes {
         // .duration(400)
         // .EUt(GTValues.VA[GTValues.HV])
         // .save(provider);
+
+        AURA_ALTAR.recipeBuilder("dirt_from_dirt")
+                .inputItems(Items.DIRT)
+                .input(AuraRecipeCapability.CAP, 25000)
+                .outputItems(Items.DIRT)
+                .duration(400)
+                .EUt(GTValues.VA[GTValues.HV])
+                .save(provider);
+
+        AURA_ALTAR.recipeBuilder("stone_from_stone")
+                .inputItems(Items.COBBLESTONE)
+                .output(AuraRecipeCapability.CAP, 25000)
+                .outputItems(Items.COBBLESTONE)
+                .duration(400)
+                .EUt(GTValues.VA[GTValues.HV])
+                .save(provider);
     }
 }

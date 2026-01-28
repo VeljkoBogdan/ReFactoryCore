@@ -1,5 +1,7 @@
 package com.illuminatijoe.refactorycore.data.datagen;
 
+import com.illuminatijoe.refactorycore.machines.trait.NotifiableAuraContainer;
+
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 
 import static com.gregtechceu.gtceu.data.lang.LangHandler.replace;
@@ -31,6 +33,7 @@ public class ReFactoryLangGen {
         replace(provider, "block.gtceu.steam_separator", "Steam Separator");
         replace(provider, "block.gtceu.steam_foundry", "Steam Foundry");
         replace(provider, "block.gtceu.bloodforge", "§cBloodforge");
+        replace(provider, "block.gtceu.aura_altar", "Aura Catalysis Core");
 
         // Recipes
         replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");
@@ -58,6 +61,18 @@ public class ReFactoryLangGen {
                 "§7Processes up to 4 recipes in parallel");
         replace(provider, "tooltip.gtceu.hydrator", "Hydrates stuff");
         replace(provider, "tooltip.refactorycore.taint_amount", "Current Taint: %s");
+        replace(provider, "tooltip.refactorycore.aura_altar.0", "§7Uses Aura to catalyze magical items");
+        replace(provider, "tooltip.refactorycore.aura_altar.1", "§bConsumes the aura needed according to the recipe");
+        replace(provider, "tooltip.refactorycore.aura_hatch.import.0",
+                "§bPulls Aura from the environment and provides it to the multiblock");
+        replace(provider, "tooltip.refactorycore.aura_hatch.export.0",
+                "§bExtracts Aura from the multiblock and releases it into the environment");
+        replace(provider, "tooltip.refactorycore.aura_hatch.import.1",
+                "§ePulls Aura from the highest Aura spot in a " + NotifiableAuraContainer.INPUT_RADIUS +
+                        "block radius");
+        replace(provider, "tooltip.refactorycore.aura_hatch.export.1",
+                "§eExtracts Aura to the lowest Aura spot in a " + +NotifiableAuraContainer.OUTPUT_RADIUS +
+                        "block radius");
 
         // Tiered machine tooltips
         standardTooltips(provider, "gtceu.machine", "hydrator",
@@ -71,9 +86,14 @@ public class ReFactoryLangGen {
         replace(provider, "gui.refactorycore.lp_hatch.no_network", "Not attached to a network!");
         replace(provider, "gui.refactorycore.lp_hatch.owner", "Attached to: %d");
         replace(provider, "gui.refactorycore.lp_hatch.lp", "Current LP: %s");
+        replace(provider, "gui.refactorycore.aura_hatch.label.import", "Aura Input Hatch");
+        replace(provider, "gui.refactorycore.aura_hatch.label.export", "Aura Output Hatch");
+        replace(provider, "gui.refactorycore.aura_hatch.aura", "Current Aura Around: %s");
 
         // recipe
         provider.add("refactorycore.recipe.lp_in", "LP Input: %s");
+        provider.add("refactorycore.recipe.aura_in", "Aura Input: %s");
         provider.add("refactorycore.recipe.lp_out", "LP Output: %s");
+        provider.add("refactorycore.recipe.aura_out", "Aura Output: %s");
     }
 }

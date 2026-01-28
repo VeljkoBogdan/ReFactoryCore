@@ -1,11 +1,9 @@
 package com.illuminatijoe.refactorycore.machines.multiblock.generator;
 
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.illuminatijoe.refactorycore.data.materials.ReFactoryMaterials;
 
 import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.capability.recipe.IO;
+import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.feature.ITieredMachine;
@@ -19,6 +17,7 @@ import com.gregtechceu.gtceu.api.recipe.ingredient.EnergyStack;
 import com.gregtechceu.gtceu.api.recipe.modifier.ModifierFunction;
 import com.gregtechceu.gtceu.api.recipe.modifier.ParallelLogic;
 import com.gregtechceu.gtceu.api.recipe.modifier.RecipeModifier;
+import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import com.gregtechceu.gtceu.utils.FormattingUtil;
 import com.gregtechceu.gtceu.utils.GTMath;
@@ -28,9 +27,6 @@ import com.lowdragmc.lowdraglib.syncdata.field.ManagedFieldHolder;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.LavaFluid;
 import net.minecraftforge.fluids.FluidStack;
 
 import lombok.Getter;
@@ -117,17 +113,17 @@ public class LargeManaBurnerMachine extends WorkableElectricMultiblockMachine im
         boolean value = super.onWorking();
 
         // Perform the check 5 times a second
-//        if (runningTimer % 4 == 0) {
-//            // Consume the cleaner fluid and remove taint if the recipe goes through
-//            if (RecipeHelper.handleRecipeIO(this, getCleanerRecipe(), IO.IN,
-//                    this.recipeLogic.getChanceCaches()).isSuccess() &&
-//                    RecipeHelper.handleRecipeIO(this, getCleanerRecipe(), IO.OUT,
-//                        this.recipeLogic.getChanceCaches()).isSuccess()) {
-//                taint -= 0.01;
-//            }
-//
-//            updateEfficiency();
-//        }
+        // if (runningTimer % 4 == 0) {
+        // // Consume the cleaner fluid and remove taint if the recipe goes through
+        // if (RecipeHelper.handleRecipeIO(this, getCleanerRecipe(), IO.IN,
+        // this.recipeLogic.getChanceCaches()).isSuccess() &&
+        // RecipeHelper.handleRecipeIO(this, getCleanerRecipe(), IO.OUT,
+        // this.recipeLogic.getChanceCaches()).isSuccess()) {
+        // taint -= 0.01;
+        // }
+        //
+        // updateEfficiency();
+        // }
 
         runningTimer++;
         if (runningTimer > 72000) runningTimer %= 72000;
@@ -138,8 +134,8 @@ public class LargeManaBurnerMachine extends WorkableElectricMultiblockMachine im
     @Override
     public void afterWorking() {
         super.afterWorking();
-//        taint += 0.5;
-//        updateEfficiency();
+        // taint += 0.5;
+        // updateEfficiency();
     }
 
     @Override

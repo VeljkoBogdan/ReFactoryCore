@@ -1,5 +1,6 @@
-// 1.20.1	2026-01-20T22:57:39.5567365	Registrate Provider for refactorycore [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.20.1	2026-01-28T15:51:28.5290138	Registrate Provider for refactorycore [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 7ad0b4edd386247c00879fc6a0fbaf4b36b558b8 assets/refactorycore/blockstates/advanced_primitive_blast_furnace.json
+fc9a6eb449cf4314b04b347f4c672cc08f2a6e67 assets/refactorycore/blockstates/aura_altar.json
 65ca776a53d7023ebe59bf12bc0a4212426da508 assets/refactorycore/blockstates/bloodforge.json
 52822cdb3931bcb327b9424fbc17eda155d21094 assets/refactorycore/blockstates/bronze_multiblock_tank.json
 09b37fa2951d5b45f6b729f04b08c74ce565431a assets/refactorycore/blockstates/bronze_tank_valve.json
@@ -21,6 +22,8 @@ cb8ce942d16e3bb87f6af1f5232ee49383d06793 assets/refactorycore/blockstates/luv_lp
 99d874d84a3b5daab3cd95fa701235fda5a79890 assets/refactorycore/blockstates/lv_hydrator.json
 2ed8169601b2e46c84154242a8d6bafe1dab2478 assets/refactorycore/blockstates/max_lp_input_hatch.json
 4da415087dd0a65639029a1c9fcd9d3d738edd44 assets/refactorycore/blockstates/max_lp_output_hatch.json
+d89f65de516446492b01ad059e2e1d13b08f12b2 assets/refactorycore/blockstates/mv_aura_export_hatch.json
+1a6e64c452f5ce752fe2a78d2e8e97af060c6a7b assets/refactorycore/blockstates/mv_aura_input_hatch.json
 9dfe8722666f057f46b565578fa217f930c4f0b9 assets/refactorycore/blockstates/mv_hydrator.json
 60692f2d3ffd9b633bc896d438d720a8ea9649a0 assets/refactorycore/blockstates/opv_hydrator.json
 2996aea4a884e814ffc67dcb2fecec099dbcb286 assets/refactorycore/blockstates/opv_lp_input_hatch.json
@@ -51,10 +54,11 @@ b31ba98bcb1bb3709dd26b05cf28b4d683b9dbe7 assets/refactorycore/blockstates/vigoro
 1bd830de512778d7e87c3f2c229858af98a7d752 assets/refactorycore/blockstates/zpm_hydrator.json
 64b4702860b479e9b630ced9648d49f3494f2ca0 assets/refactorycore/blockstates/zpm_lp_input_hatch.json
 b0b09cb6e6bae4b50abab46ff017e6a12e945948 assets/refactorycore/blockstates/zpm_lp_output_hatch.json
-e317498a2c52d38f5b3e9503307e415e317cdce0 assets/refactorycore/lang/en_ud.json
-ce58eebc2f880682f57d39bb9a1f3157e32d54d6 assets/refactorycore/lang/en_us.json
+47f3f79c3281feb2387cc5b69ae48e295fa4815d assets/refactorycore/lang/en_ud.json
+dad1b4bcfcb43ecefa12816334adbc14707d7a54 assets/refactorycore/lang/en_us.json
 28c2bd0521bcd107b69d75cd5a931145712eb15e assets/refactorycore/models/block/clean_mana_burner_casing.json
 86095f68e9654219610ed1a0d256fb0a1408441e assets/refactorycore/models/block/machine/advanced_primitive_blast_furnace.json
+1519e12624ed21de156ed28522e32a45c546e696 assets/refactorycore/models/block/machine/aura_altar.json
 009ce12acd6c9dc659ae4d05de8855874791ca69 assets/refactorycore/models/block/machine/bloodforge.json
 fc054434e27ff76245cdadf88009270704ed8661 assets/refactorycore/models/block/machine/bronze_multiblock_tank.json
 c20555cd9983642d430fcb6d3c60fb9e5c19a355 assets/refactorycore/models/block/machine/bronze_tank_valve.json
@@ -75,6 +79,8 @@ f2803956897be32b99d0b0832d522f3c9b65a788 assets/refactorycore/models/block/machi
 97b8d7da08fb7a25fa32278c8cc1836f5977fe31 assets/refactorycore/models/block/machine/lv_hydrator.json
 ebb9806d6a010c5c02099d78ddcdc678d528d0d3 assets/refactorycore/models/block/machine/max_lp_input_hatch.json
 e6ba85e7dd7bba570e3897320c3cc6e1b00226c1 assets/refactorycore/models/block/machine/max_lp_output_hatch.json
+13f79d4f7b25b27ec14d9433adf0f0fc3f58d58b assets/refactorycore/models/block/machine/mv_aura_export_hatch.json
+8e5d078c8595698b2b9372f701a3db8b8bfa9c56 assets/refactorycore/models/block/machine/mv_aura_input_hatch.json
 129047a68767d719e84a215e33282f06a223d708 assets/refactorycore/models/block/machine/mv_hydrator.json
 71d5d54a5c83a1f8ef1cc28ba8b5d3d95bf0f6d6 assets/refactorycore/models/block/machine/opv_hydrator.json
 d9a36943ff44ec032497a63add4414e52d6536c0 assets/refactorycore/models/block/machine/opv_lp_input_hatch.json
@@ -106,6 +112,7 @@ e559c06abe6f908a0f1894fb9b564be5ac8eea01 assets/refactorycore/models/block/machi
 12a7e94863be7fbb167b9702e046707beb86d376 assets/refactorycore/models/block/stable_mana_burner_casing.json
 2bb362f5cab1f2982d7df729050c359292aee9e3 assets/refactorycore/models/block/vigorous_mana_burner_casing.json
 8e93050b8ee64107df70244b96c3da51511e9cd4 assets/refactorycore/models/item/advanced_primitive_blast_furnace.json
+9f919b7ad25e0fd3ed721ca39cfb430696d8a29e assets/refactorycore/models/item/aura_altar.json
 67aab146e223030f126201e263a2ce99e33d332b assets/refactorycore/models/item/bloodforge.json
 5d64b565c95ab16328654b7bf9f2d08b074c9e08 assets/refactorycore/models/item/bronze_multiblock_tank.json
 ebac5ee42d31632029b498d6eec02fdb10c88e81 assets/refactorycore/models/item/bronze_tank_valve.json
@@ -127,6 +134,8 @@ efb975814f7a8d32694f89a87c87ec290b065112 assets/refactorycore/models/item/luv_ma
 84b45f0351113a68da12e50bf51eca3a47e3a911 assets/refactorycore/models/item/lv_hydrator.json
 ad50d10e11f7fd1e8956c2d8a655b86e40035acf assets/refactorycore/models/item/max_lp_input_hatch.json
 60c201aa865f10c92239a821a71c4d2462ab8c1b assets/refactorycore/models/item/max_lp_output_hatch.json
+c6062589d3554dc58d9889aafff7561c420b0848 assets/refactorycore/models/item/mv_aura_export_hatch.json
+2b6f0bfbaafc0ad965def93d287328bffd67a39b assets/refactorycore/models/item/mv_aura_input_hatch.json
 b887cbb1c407931ec8f3bff6337396588f843c4e assets/refactorycore/models/item/mv_hydrator.json
 d151b27ec4a1d881e24b5266f65a9112b82bfb07 assets/refactorycore/models/item/opv_hydrator.json
 4f51b0eda0c71c698f0c22ff3b289458425b2c85 assets/refactorycore/models/item/opv_lp_input_hatch.json

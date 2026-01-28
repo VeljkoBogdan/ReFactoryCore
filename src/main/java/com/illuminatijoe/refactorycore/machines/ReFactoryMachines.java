@@ -3,6 +3,7 @@ package com.illuminatijoe.refactorycore.machines;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.machines.multiblock.other.APBFMachine;
 import com.illuminatijoe.refactorycore.machines.multiblock.steam.WeakSteamParallelMultiblockMachine;
+import com.illuminatijoe.refactorycore.machines.part.AuraHatchPartMachine;
 import com.illuminatijoe.refactorycore.machines.part.LPHatchPartMachine;
 import com.illuminatijoe.refactorycore.machines.part.ReFactoryPartAbilities;
 
@@ -25,6 +26,9 @@ import com.gregtechceu.gtceu.common.machine.multiblock.steam.SteamParallelMultib
 
 import net.minecraft.network.chat.Component;
 
+import java.util.List;
+
+import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.blocks;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.models.GTMachineModels.createWorkableCasingMachineModel;
@@ -38,6 +42,13 @@ public class ReFactoryMachines {
     public static final MachineDefinition[] LP_EXPORT_HATCH = registerLPHatch(
             "lp_output_hatch", "LP Output Hatch",
             IO.OUT, GTMachineUtils.MULTI_HATCH_TIERS, ReFactoryPartAbilities.EXPORT_LP);
+
+    public static final MachineDefinition[] AURA_IMPORT_HATCH = registerAuraHatch(
+            "aura_input_hatch", "Aura Input Hatch",
+            IO.IN, ReFactoryPartAbilities.IMPORT_AURA);
+    public static final MachineDefinition[] AURA_EXPORT_HATCH = registerAuraHatch(
+            "aura_export_hatch", "Aura Export Hatch",
+            IO.OUT, ReFactoryPartAbilities.EXPORT_AURA);
 
     public static final MachineDefinition STEAM_CENTRIFUGE = REGISTRATE
             .multiblock("steam_separator", SteamParallelMultiblockMachine::new)
@@ -263,6 +274,24 @@ public class ReFactoryMachines {
                         })
                         .register(),
                 tiers);
+    }
+
+    public static MachineDefinition[] registerAuraHatch(String name, String displayName, IO io,
+                                                        PartAbility... abilities) {
+        return GTMachineUtils.registerTieredMachines(REGISTRATE, name,
+                (holder, tier) -> new AuraHatchPartMachine(holder, tier, io),
+                (tier, builder) -> builder
+                        .tooltips(List.of(
+                                Component.translatable("tooltip.refactorycore.aura_hatch." +
+                                        (io == IO.IN ? "import" : "export") + "0"),
+                                Component.translatable("tooltip.refactorycore.aura_hatch.range")))
+                        .langValue(GTValues.VNF[tier] + ' ' + displayName)
+                        .abilities(abilities)
+                        .rotationState(RotationState.ALL)
+                        .modelProperty(GTMachineModelProperties.IS_FORMED, false)
+                        .overlayTieredHullModel("aura_hatch")
+                        .register(),
+                MV);
     }
 
     public static void init() {}

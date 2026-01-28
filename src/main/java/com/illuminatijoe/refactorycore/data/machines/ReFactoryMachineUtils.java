@@ -1,8 +1,8 @@
 package com.illuminatijoe.refactorycore.data.machines;
 
-import com.gregtechceu.gtceu.api.GTValues;
 import com.illuminatijoe.refactorycore.machines.multiblock.generator.LargeManaBurnerMachine;
 
+import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
