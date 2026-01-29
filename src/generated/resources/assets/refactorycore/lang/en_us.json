@@ -115,6 +115,12 @@
   "tooltip.gtceu.steam_large_extractor.0": "Steam multiblock extractor",
   "tooltip.gtceu.steam_large_extractor.1": "§7Processes up to 8 recipes in parallel",
   "tooltip.gtceu.steam_separator.0": "Large centrifuge",
+  "tooltip.refactorycore.aura_altar.0": "§7Uses Aura to catalyze magical items",
+  "tooltip.refactorycore.aura_altar.1": "§bConsumes the aura needed according to the recipe",
+  "tooltip.refactorycore.aura_hatch.export.0": "§bExtracts Aura from the multiblock and releases it into the environment",
+  "tooltip.refactorycore.aura_hatch.export.1": "§eExtracts Aura to the lowest Aura spot in a 32block radius",
+  "tooltip.refactorycore.aura_hatch.import.0": "§bPulls Aura from the environment and provides it to the multiblock",
+  "tooltip.refactorycore.aura_hatch.import.1": "§ePulls Aura from the highest Aura spot in a 32block radius",
   "tooltip.refactorycore.lp_hatch.input": "Max Recipe Input: %s",
   "tooltip.refactorycore.lp_hatch.output": "Max Network Capacity: %s",
   "tooltip.refactorycore.taint_amount": "Current Taint: %s"

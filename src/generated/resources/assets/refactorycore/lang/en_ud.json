@@ -115,6 +115,12 @@
   "tooltip.gtceu.steam_large_extractor.0": "ɹoʇɔɐɹʇxǝ ʞɔoןqıʇןnɯ ɯɐǝʇS",
   "tooltip.gtceu.steam_large_extractor.1": "ןǝןןɐɹɐd uı sǝdıɔǝɹ 8 oʇ dn sǝssǝɔoɹԀㄥ§",
   "tooltip.gtceu.steam_separator.0": "ǝbnɟıɹʇuǝɔ ǝbɹɐꞀ",
+  "tooltip.refactorycore.aura_altar.0": "sɯǝʇı ןɐɔıbɐɯ ǝzʎןɐʇɐɔ oʇ ɐɹnⱯ sǝs∩ㄥ§",
+  "tooltip.refactorycore.aura_altar.1": "ǝdıɔǝɹ ǝɥʇ oʇ buıpɹoɔɔɐ pǝpǝǝu ɐɹnɐ ǝɥʇ sǝɯnsuoƆq§",
+  "tooltip.refactorycore.aura_hatch.export.0": "ʇuǝɯuoɹıʌuǝ ǝɥʇ oʇuı ʇı sǝsɐǝןǝɹ puɐ ʞɔoןqıʇןnɯ ǝɥʇ ɯoɹɟ ɐɹnⱯ sʇɔɐɹʇxƎq§",
+  "tooltip.refactorycore.aura_hatch.export.1": "snıpɐɹ ʞɔoןqᄅƐ ɐ uı ʇods ɐɹnⱯ ʇsǝʍoן ǝɥʇ oʇ ɐɹnⱯ sʇɔɐɹʇxƎǝ§",
+  "tooltip.refactorycore.aura_hatch.import.0": "ʞɔoןqıʇןnɯ ǝɥʇ oʇ ʇı sǝpıʌoɹd puɐ ʇuǝɯuoɹıʌuǝ ǝɥʇ ɯoɹɟ ɐɹnⱯ sןןnԀq§",
+  "tooltip.refactorycore.aura_hatch.import.1": "snıpɐɹ ʞɔoןqᄅƐ ɐ uı ʇods ɐɹnⱯ ʇsǝɥbıɥ ǝɥʇ ɯoɹɟ ɐɹnⱯ sןןnԀǝ§",
   "tooltip.refactorycore.lp_hatch.input": "%s :ʇnduI ǝdıɔǝᴚ xɐW",
   "tooltip.refactorycore.lp_hatch.output": "%s :ʎʇıɔɐdɐƆ ʞɹoʍʇǝN xɐW",
   "tooltip.refactorycore.taint_amount": "%s :ʇuıɐ⟘ ʇuǝɹɹnƆ"

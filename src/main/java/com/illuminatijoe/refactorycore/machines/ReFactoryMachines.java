@@ -283,8 +283,9 @@ public class ReFactoryMachines {
                 (tier, builder) -> builder
                         .tooltips(List.of(
                                 Component.translatable("tooltip.refactorycore.aura_hatch." +
-                                        (io == IO.IN ? "import" : "export") + "0"),
-                                Component.translatable("tooltip.refactorycore.aura_hatch.range")))
+                                        (io == IO.IN ? "import" : "export") + ".0"),
+                                Component.translatable("tooltip.refactorycore.aura_hatch." +
+                                        (io == IO.IN ? "import" : "export") + ".1")))
                         .langValue(GTValues.VNF[tier] + ' ' + displayName)
                         .abilities(abilities)
                         .rotationState(RotationState.ALL)

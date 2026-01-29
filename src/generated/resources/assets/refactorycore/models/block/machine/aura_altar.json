@@ -3,15 +3,15 @@
   "loader": "gtceu:machine",
   "machine": "refactorycore:aura_altar",
   "texture_overrides": {
-    "all": "gtceu:block/casings/solid/machine_casing_stable_titanium"
+    "all": "refactorycore:block/other/infused_brick"
   },
   "variants": {
     "is_formed=false,recipe_logic_status=idle": {
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
-          "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front"
+          "all": "refactorycore:block/other/infused_brick",
+          "overlay_top": "refactorycore:block/multiblock/aura_altar/overlay_top"
         }
       }
     },
@@ -19,8 +19,8 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
-          "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front"
+          "all": "refactorycore:block/other/infused_brick",
+          "overlay_top": "refactorycore:block/multiblock/aura_altar/overlay_top"
         }
       }
     },
@@ -28,9 +28,9 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
-          "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front_active",
-          "overlay_front_emissive": "gtceu:block/multiblock/power_substation/overlay_front_active_emissive"
+          "all": "refactorycore:block/other/infused_brick",
+          "overlay_top": "refactorycore:block/multiblock/aura_altar/overlay_top_active",
+          "overlay_top_emissive": "refactorycore:block/multiblock/aura_altar/overlay_top_active_emissive"
         }
       }
     },
@@ -38,9 +38,9 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
-          "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front_active",
-          "overlay_front_emissive": "gtceu:block/multiblock/power_substation/overlay_front_active_emissive"
+          "all": "refactorycore:block/other/infused_brick",
+          "overlay_top": "refactorycore:block/multiblock/aura_altar/overlay_top_active",
+          "overlay_top_emissive": "refactorycore:block/multiblock/aura_altar/overlay_top_active_emissive"
         }
       }
     },
@@ -48,8 +48,8 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
-          "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front"
+          "all": "refactorycore:block/other/infused_brick",
+          "overlay_top": "refactorycore:block/multiblock/aura_altar/overlay_top"
         }
       }
     },
@@ -57,8 +57,8 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
-          "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front"
+          "all": "refactorycore:block/other/infused_brick",
+          "overlay_top": "refactorycore:block/multiblock/aura_altar/overlay_top"
         }
       }
     },
@@ -66,9 +66,9 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
-          "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front_active",
-          "overlay_front_emissive": "gtceu:block/multiblock/power_substation/overlay_front_active_emissive"
+          "all": "refactorycore:block/other/infused_brick",
+          "overlay_top": "refactorycore:block/multiblock/aura_altar/overlay_top_active",
+          "overlay_top_emissive": "refactorycore:block/multiblock/aura_altar/overlay_top_active_emissive"
         }
       }
     },
@@ -76,9 +76,9 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
-          "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front_active",
-          "overlay_front_emissive": "gtceu:block/multiblock/power_substation/overlay_front_active_emissive"
+          "all": "refactorycore:block/other/infused_brick",
+          "overlay_top": "refactorycore:block/multiblock/aura_altar/overlay_top_active",
+          "overlay_top_emissive": "refactorycore:block/multiblock/aura_altar/overlay_top_active_emissive"
         }
       }
     }

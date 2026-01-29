@@ -33,7 +33,6 @@ public class ReFactoryLangGen {
         replace(provider, "block.gtceu.steam_separator", "Steam Separator");
         replace(provider, "block.gtceu.steam_foundry", "Steam Foundry");
         replace(provider, "block.gtceu.bloodforge", "§cBloodforge");
-        replace(provider, "block.gtceu.aura_altar", "Aura Catalysis Core");
 
         // Recipes
         replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");
@@ -69,10 +68,10 @@ public class ReFactoryLangGen {
                 "§bExtracts Aura from the multiblock and releases it into the environment");
         replace(provider, "tooltip.refactorycore.aura_hatch.import.1",
                 "§ePulls Aura from the highest Aura spot in a " + NotifiableAuraContainer.INPUT_RADIUS +
-                        "block radius");
+                        " block radius");
         replace(provider, "tooltip.refactorycore.aura_hatch.export.1",
                 "§eExtracts Aura to the lowest Aura spot in a " + +NotifiableAuraContainer.OUTPUT_RADIUS +
-                        "block radius");
+                        " block radius");
 
         // Tiered machine tooltips
         standardTooltips(provider, "gtceu.machine", "hydrator",

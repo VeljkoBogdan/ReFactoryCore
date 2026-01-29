@@ -34,12 +34,12 @@ public class NotifiableAuraContainer extends NotifiableRecipeHandlerTrait<Intege
     private final ConditionalSubscriptionHandler conditionalSubscriptionHandler;
     @Getter
     @DescSynced
-    private int auraAround;
+    private int currentAuraAround;
 
     public NotifiableAuraContainer(MetaMachine machine, IO io) {
         super(machine);
         this.handlerIO = io;
-        auraAround = -1;
+        currentAuraAround = -1;
 
         conditionalSubscriptionHandler = new ConditionalSubscriptionHandler(
                 machine,
@@ -51,10 +51,14 @@ public class NotifiableAuraContainer extends NotifiableRecipeHandlerTrait<Intege
         if (this.machine.getOffsetTimer() % 20 != 0) return;
 
         int aura = IAuraChunk.getAuraInArea(machine.getLevel(), machine.getPos(), INPUT_RADIUS);
-        if (aura != auraAround) {
-            auraAround = aura;
+        if (aura != currentAuraAround) {
+            currentAuraAround = aura;
             notifyListeners();
         }
+    }
+
+    public int getAuraAround() {
+        return IAuraChunk.getAuraInArea(machine.getLevel(), machine.getPos(), INPUT_RADIUS);
     }
 
     @Override
