@@ -57,8 +57,7 @@ public class ReFactoryMachineUtils {
                         .build())
                 .workableCasingModel(casingTexture, overlayModel)
                 .tooltips(
-                        Component.translatable("gtceu.universal.tooltip.base_production_eut", V[tier] * 2),
-                        Component.translatable("refactorycore.multiblock.mana_burner.efficiency_tooltip", VNF[tier]))
+                        Component.translatable("gtceu.universal.tooltip.base_production_eut", V[tier] * 2))
                 .register();
     }
 }

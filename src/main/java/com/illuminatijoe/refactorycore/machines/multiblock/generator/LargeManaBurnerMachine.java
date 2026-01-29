@@ -1,9 +1,6 @@
 package com.illuminatijoe.refactorycore.machines.multiblock.generator;
 
-import com.illuminatijoe.refactorycore.data.materials.ReFactoryMaterials;
-
 import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.feature.ITieredMachine;
@@ -17,16 +14,19 @@ import com.gregtechceu.gtceu.api.recipe.ingredient.EnergyStack;
 import com.gregtechceu.gtceu.api.recipe.modifier.ModifierFunction;
 import com.gregtechceu.gtceu.api.recipe.modifier.ParallelLogic;
 import com.gregtechceu.gtceu.api.recipe.modifier.RecipeModifier;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
-import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
+import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.gregtechceu.gtceu.utils.FormattingUtil;
 import com.gregtechceu.gtceu.utils.GTMath;
 
-import com.lowdragmc.lowdraglib.syncdata.annotation.DescSynced;
 import com.lowdragmc.lowdraglib.syncdata.field.ManagedFieldHolder;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraftforge.fluids.FluidStack;
 
 import lombok.Getter;
@@ -41,37 +41,12 @@ public class LargeManaBurnerMachine extends WorkableElectricMultiblockMachine im
     protected static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(
             LargeManaBurnerMachine.class, WorkableMultiblockMachine.MANAGED_FIELD_HOLDER);
 
-    private static final Material CLEANER = ReFactoryMaterials.MANA_CLEANER_FLUID;
-
     @Getter
     private final int tier;
-
-    @DescSynced
-    private int runningTimer = 0;
-    @DescSynced
-    private double efficiency = 1; // [0, 1]
-    @DescSynced
-    private double taint = 0; // [0, 1]
 
     public LargeManaBurnerMachine(IMachineBlockEntity holder, int tier) {
         super(holder);
         this.tier = tier;
-    }
-
-    protected GTRecipe getCleanerRecipe() {
-        FluidStack cleaner = getCleanerFluidStack();
-        FluidStack dirty = new FluidStack(GTMaterials.Lava.getFluid(), cleaner.getAmount());
-
-        return GTRecipeBuilder.ofRaw()
-                .inputFluids(cleaner)
-                .outputFluids(dirty)
-                .buildRawRecipe();
-    }
-
-    private FluidStack getCleanerFluidStack() {
-        // 10mb when clean, 210mb when at 100% taint
-        int amount = 10 + (int) (taint * taint * 200);
-        return CLEANER.getFluid(amount);
     }
 
     @Override
@@ -102,12 +77,6 @@ public class LargeManaBurnerMachine extends WorkableElectricMultiblockMachine im
         return ModifierFunction.NULL;
     }
 
-    private void updateEfficiency() {
-        // Clamp taint to [0,1]
-        taint = Math.min(1.0, Math.max(taint, 0.0));
-        efficiency = 1.0 - taint;
-    }
-
     @Override
     public boolean onWorking() {
         boolean value = super.onWorking();
@@ -125,8 +94,8 @@ public class LargeManaBurnerMachine extends WorkableElectricMultiblockMachine im
         // updateEfficiency();
         // }
 
-        runningTimer++;
-        if (runningTimer > 72000) runningTimer %= 72000;
+        // runningTimer++;
+        // if (runningTimer > 72000) runningTimer %= 72000;
 
         return value;
     }
@@ -158,7 +127,7 @@ public class LargeManaBurnerMachine extends WorkableElectricMultiblockMachine im
 
         builder.addFuelNeededLine(getRecipeFluidInputInfo(), recipeLogic.getDuration());
         builder.addWorkingStatusLine();
-        textList.add(Component.translatable("tooltip.refactorycore.taint_amount", (int) (taint * 100)));
+        // textList.add(Component.translatable("tooltip.refactorycore.taint_amount", (int) (taint * 100)));
     }
 
     @Nullable
@@ -174,6 +143,33 @@ public class LargeManaBurnerMachine extends WorkableElectricMultiblockMachine im
 
         int neededAmount = GTMath.saturatedCast(requiredFluidInput.getAmount());
         return ChatFormatting.RED + FormattingUtil.formatNumbers(neededAmount) + "mB";
+    }
+
+    @Override
+    public void animateTick(RandomSource random) {
+        if (this.isActive()) {
+            final BlockPos pos = getPos();
+            float x = pos.getX() + 0.5F;
+            float z = pos.getZ() + 0.5F;
+
+            final var facing = getFrontFacing();
+            final float horizontalOffset = GTValues.RNG.nextFloat() * 0.6F - 0.3F;
+            final float y = pos.getY() + GTValues.RNG.nextFloat() * 0.375F + 0.3F;
+
+            if (facing.getAxis() == Direction.Axis.X) {
+                if (facing.getAxisDirection() == Direction.AxisDirection.POSITIVE) x += 0.52F;
+                else x -= 0.52F;
+                z += horizontalOffset;
+            } else if (facing.getAxis() == Direction.Axis.Z) {
+                if (facing.getAxisDirection() == Direction.AxisDirection.POSITIVE) z += 0.52F;
+                else z -= 0.52F;
+                x += horizontalOffset;
+            }
+            if (ConfigHolder.INSTANCE.machines.machineSounds && GTValues.RNG.nextDouble() < 0.1) {
+                getLevel().playLocalSound(x, y, z, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F,
+                        false);
+            }
+        }
     }
 
     @Override
