@@ -49,5 +49,12 @@ public class ReFactoryCoreRecipeTypes {
             .setProgressBar(GuiTextures.PROGRESS_BAR_GAS_COLLECTOR, LEFT_TO_RIGHT)
             .setSound(GTSoundEntries.BATH);
 
+    public static final GTRecipeType NUCLEAR_REACTOR = GTRecipeTypes.register(
+            "nuclear_reactor", GTRecipeTypes.GENERATOR)
+            .setMaxIOSize(3, 3, 2, 2)
+            .setEUIO(IO.OUT)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_FUSION, LEFT_TO_RIGHT)
+            .setSound(GTSoundEntries.TURBINE);
+
     public static void init() {}
 }

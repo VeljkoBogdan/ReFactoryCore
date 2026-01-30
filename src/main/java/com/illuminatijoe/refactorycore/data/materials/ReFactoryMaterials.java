@@ -4,6 +4,8 @@ import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 
+import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
+
 public class ReFactoryMaterials {
 
     public static Material MANA_CLEANER_FLUID;

@@ -3,8 +3,8 @@ package com.illuminatijoe.refactorycore.machines.multiblock;
 import com.illuminatijoe.refactorycore.ReFactoryCore;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.machines.multiblock.electric.AuraAltarMultiblockMachine;
+import com.illuminatijoe.refactorycore.machines.part.ReFactoryPartAbilities;
 
-import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
@@ -14,7 +14,6 @@ import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.models.GTMachineModels;
 
-import com.illuminatijoe.refactorycore.machines.part.ReFactoryPartAbilities;
 import net.minecraft.network.chat.Component;
 
 import de.ellpeck.naturesaura.blocks.ModBlocks;

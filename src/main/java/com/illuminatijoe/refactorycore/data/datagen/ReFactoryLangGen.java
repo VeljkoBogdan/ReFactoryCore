@@ -33,12 +33,16 @@ public class ReFactoryLangGen {
         replace(provider, "block.gtceu.steam_separator", "Steam Separator");
         replace(provider, "block.gtceu.steam_foundry", "Steam Foundry");
         replace(provider, "block.gtceu.bloodforge", "§cBloodforge");
+        replace(provider, "block.gtceu.nuclear_reactor", "Nuclear Reactor");
+        replace(provider, "block.gtceu.fake_nuclear_reactor", "Fake Nuclear Reactor");
 
         // Recipes
         replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");
         replace(provider, "gtceu.hydrator", "Hydrating");
         replace(provider, "gtceu.bloodforge", "Blood Forging");
         replace(provider, "gtceu.mana_burner", "Mana Burning");
+        replace(provider, "gtceu.nuclear_reactor", "Nuclear Fission");
+        replace(provider, "gtceu.fake_nuclear_reactor", "Nuclear Cooling");
 
         // Tooltips
         provider.add("tooltip.refactorycore.lp_hatch.input", "Max Recipe Input: %s");
@@ -70,8 +74,20 @@ public class ReFactoryLangGen {
                 "§ePulls Aura from the highest Aura spot in a " + NotifiableAuraContainer.INPUT_RADIUS +
                         " block radius");
         replace(provider, "tooltip.refactorycore.aura_hatch.export.1",
-                "§eExtracts Aura to the lowest Aura spot in a " + +NotifiableAuraContainer.OUTPUT_RADIUS +
+                "§eExtracts Aura to the lowest Aura spot in a " + NotifiableAuraContainer.OUTPUT_RADIUS +
                         " block radius");
+        replace(provider, "tooltip.refactorycore.plutonium_temp", "§7Fission Temperature: §4%sK§n");
+        replace(provider, "tooltip.refactorycore.uranium_temp", "§7Fission Temperature: §4%sK§n");
+        replace(provider, "tooltip.refactorycore.thorium_temp", "§7Fission Temperature: §4%sK§n");
+
+        replace(provider, "tooltip.refactorycore.nuclear_reactor.0",
+                "Generates insane amounts of EU using nuclear fuel");
+        replace(provider, "tooltip.refactorycore.nuclear_reactor.1", "Consumes coolant each second to function");
+        replace(provider, "tooltip.refactorycore.nuclear_reactor.2",
+                "The amount of coolant required scales with the fuel's fission temperature");
+        replace(provider, "tooltip.refactorycore.nuclear_reactor.3", "The exact formula is: %s");
+        replace(provider, "tooltip.refactorycore.nuclear_reactor.4", "Coolants:");
+        replace(provider, "refactorycore.misc.nuclear_coolant_list", "%s: %s mB");
 
         // Tiered machine tooltips
         standardTooltips(provider, "gtceu.machine", "hydrator",
@@ -88,11 +104,22 @@ public class ReFactoryLangGen {
         replace(provider, "gui.refactorycore.aura_hatch.label.import", "Aura Input Hatch");
         replace(provider, "gui.refactorycore.aura_hatch.label.export", "Aura Output Hatch");
         replace(provider, "gui.refactorycore.aura_hatch.aura", "Current Aura Around: %s");
+        replace(provider, "gui.refactorycore.nuclear_reactor.heat", "Current Heat: %s");
+        replace(provider, "gui.refactorycore.nuclear_reactor.consume_amount", "Consumes: %s");
+        replace(provider, "gui.refactorycore.nuclear_reactor.current_coolant", "Coolant: %s");
 
         // recipe
         provider.add("refactorycore.recipe.lp_in", "LP Input: %s");
         provider.add("refactorycore.recipe.aura_in", "Aura Input: %s");
         provider.add("refactorycore.recipe.lp_out", "LP Output: %s");
         provider.add("refactorycore.recipe.aura_out", "Aura Output: %s");
+        provider.add("refactorycore.recipe_logic.insufficient_coolant", "Not enough coolant");
+
+        // materials
+        provider.add("material.gtceu.flinak", "FLiNaK");
+        provider.add("material.gtceu.hot_flinak", "Hot FLiNaK");
+        provider.add("material.gtceu.hot_steam", "Hot Steam");
+        provider.add("material.gtceu.hot_sodium_potassium", "Hot Sodium Potassium");
+        provider.add("material.gtceu.nuclear_waste", "Nuclear Waste");
     }
 }

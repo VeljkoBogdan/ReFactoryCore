@@ -159,7 +159,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:curios-309927:6418456")
 
     // kubejs aisle tool
-    runtimeOnly fg.deobf("curse.maven:kubejs-aisle-tool-1236291:7539613")
+    runtimeOnly fg.deobf("curse.maven:kubejs-aisle-tool-1236291:7543948")
 
     // botania, runtime only until I really start making custom Botania stuffs
     runtimeOnly fg.deobf("curse.maven:botania-225643:6870713")

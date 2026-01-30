@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "refactorycore:item/plutonium_fuel_rod"
+  }
+}

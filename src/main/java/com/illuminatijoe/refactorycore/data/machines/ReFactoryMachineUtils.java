@@ -3,17 +3,30 @@ package com.illuminatijoe.refactorycore.data.machines;
 import com.illuminatijoe.refactorycore.machines.multiblock.generator.LargeManaBurnerMachine;
 
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.capability.recipe.IO;
+import com.gregtechceu.gtceu.api.capability.recipe.RecipeCapability;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
+import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiPart;
+import com.gregtechceu.gtceu.api.machine.multiblock.MultiblockControllerMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
+import com.gregtechceu.gtceu.api.machine.multiblock.WorkableMultiblockMachine;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+import com.gregtechceu.gtceu.api.recipe.RecipeHelper;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
+import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fluids.FluidStack;
 
+import org.jetbrains.annotations.Nullable;
+
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
@@ -59,5 +72,77 @@ public class ReFactoryMachineUtils {
                 .tooltips(
                         Component.translatable("gtceu.universal.tooltip.base_production_eut", V[tier] * 2))
                 .register();
+    }
+
+    public static void applyContents(MultiblockControllerMachine machine, Consumer<Object> contentHandler,
+                                     RecipeCapability<?> capability) {
+        applyContents(machine, contentHandler, capability, null);
+    }
+
+    public static void applyContents(MultiblockControllerMachine machine, Consumer<Object> contentHandler,
+                                     RecipeCapability<?> capability, @Nullable IO io) {
+        machine.getParts().forEach(part -> part.getRecipeHandlers().forEach(handlerList -> {
+            if (io != null) {
+                if (!handlerList.getHandlerIO().equals(io)) {
+                    return;
+                }
+            }
+            if (handlerList.getCapability(capability).isEmpty()) {
+                return;
+            }
+            handlerList.getCapability(capability).forEach(iRecipeHandler -> {
+                iRecipeHandler.getContents().forEach(contentHandler);
+            });
+        }));
+    }
+
+    public static void applyContents(MultiblockControllerMachine machine, BiConsumer<Object, IMultiPart> contentHandler,
+                                     RecipeCapability<?> capability, @Nullable IO io) {
+        machine.getParts().forEach(part -> part.getRecipeHandlers().forEach(handlerList -> {
+            if (io != null) {
+                if (!handlerList.getHandlerIO().equals(io)) {
+                    return;
+                }
+            }
+            if (handlerList.getCapability(capability).isEmpty()) {
+                return;
+            }
+            handlerList.getCapability(capability).forEach(iRecipeHandler -> {
+                iRecipeHandler.getContents().forEach(content -> contentHandler.accept(content, part));
+            });
+        }));
+    }
+
+    public static boolean canInputFluid(FluidStack fluidStack, WorkableMultiblockMachine machine) {
+        var Recipe = GTRecipeBuilder.ofRaw().inputFluids(fluidStack).buildRawRecipe();
+        return RecipeHelper.matchRecipe(machine, Recipe).isSuccess();
+    }
+
+    public static boolean canOutputFluid(FluidStack fluidStack, WorkableMultiblockMachine machine) {
+        var Recipe = GTRecipeBuilder.ofRaw().outputFluids(fluidStack).buildRawRecipe();
+        return RecipeHelper.matchRecipe(machine, Recipe).isSuccess();
+    }
+
+    public static boolean canInputItem(ItemStack itemStack, WorkableMultiblockMachine machine) {
+        var Recipe = GTRecipeBuilder.ofRaw().inputItems(itemStack).buildRawRecipe();
+        return RecipeHelper.matchRecipe(machine, Recipe).isSuccess();
+    }
+
+    public static boolean outputFluid(FluidStack fluidStack, WorkableMultiblockMachine machine) {
+        var Recipe = GTRecipeBuilder.ofRaw().outputFluids(fluidStack).buildRawRecipe();
+        if (RecipeHelper.matchRecipe(machine, Recipe).isSuccess()) {
+            RecipeHelper.handleRecipeIO(machine, Recipe, IO.OUT, machine.getRecipeLogic().getChanceCaches());
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean inputFluid(FluidStack fluidStack, WorkableMultiblockMachine machine) {
+        var Recipe = GTRecipeBuilder.ofRaw().inputFluids(fluidStack).buildRawRecipe();
+        if (RecipeHelper.matchRecipe(machine, Recipe).isSuccess()) {
+            RecipeHelper.handleRecipeIO(machine, Recipe, IO.IN, machine.getRecipeLogic().getChanceCaches());
+            return true;
+        }
+        return false;
     }
 }

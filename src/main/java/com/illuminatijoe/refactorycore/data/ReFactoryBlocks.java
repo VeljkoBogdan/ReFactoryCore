@@ -34,6 +34,12 @@ public class ReFactoryBlocks {
     public static final BlockEntry<Block> MANA_BURNER_CASING_PALLADIUM_RHODIUM = createCasingBlock(
             "vigorous_mana_burner_casing",
             ReFactoryCore.id("block/casings/vigorous/vigorous_mana_burner_casing"));
+    public static final BlockEntry<Block> NUCLEAR_CLADDING = createCasingBlock(
+            "nuclear_cladding",
+            ReFactoryCore.id("block/casings/nuclear/nuclear_cladding"));
+    public static final BlockEntry<Block> CONTROL_ROD_CASING = createCasingBlock(
+            "control_rod_casing",
+            ReFactoryCore.id("block/casings/nuclear/control_rod_casing"));
 
     public static void register() {}
 

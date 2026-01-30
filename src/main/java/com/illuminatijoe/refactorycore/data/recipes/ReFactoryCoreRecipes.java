@@ -11,8 +11,7 @@ import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes.ADVANCED_PRIMITIVE_BLAST_FURNACE_RECIPES;
-import static com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes.AURA_ALTAR;
+import static com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes.*;
 
 public class ReFactoryCoreRecipes {
 
@@ -20,6 +19,8 @@ public class ReFactoryCoreRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
         ReFactoryCoreMetaTileEntityLoader.init(provider);
+        NuclearRecipes.init(provider);
+        FakeRecipes.init(provider);
 
         ADVANCED_PRIMITIVE_BLAST_FURNACE_RECIPES.recipeBuilder("steel_from_coal_gem")
                 .inputItems(ingot, Iron)
@@ -184,12 +185,12 @@ public class ReFactoryCoreRecipes {
                 .EUt(GTValues.VA[GTValues.HV])
                 .save(provider);
 
-        AURA_ALTAR.recipeBuilder("stone_from_stone")
-                .inputItems(Items.COBBLESTONE)
-                .output(AuraRecipeCapability.CAP, 25000)
-                .outputItems(Items.COBBLESTONE)
-                .duration(400)
-                .EUt(GTValues.VA[GTValues.HV])
-                .save(provider);
+        // AURA_ALTAR.recipeBuilder("stone_from_stone")
+        // .inputItems(Items.COBBLESTONE)
+        // .output(AuraRecipeCapability.CAP, 25000)
+        // .outputItems(Items.COBBLESTONE)
+        // .duration(400)
+        // .EUt(GTValues.VA[GTValues.HV])
+        // .save(provider);
     }
 }
