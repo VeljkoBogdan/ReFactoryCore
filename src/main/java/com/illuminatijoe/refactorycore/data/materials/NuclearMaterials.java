@@ -3,6 +3,7 @@ package com.illuminatijoe.refactorycore.data.materials;
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
+import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.Potassium;
@@ -32,19 +33,19 @@ public class NuclearMaterials {
                 .color(0xbfffdb)
                 .components(FLINAK, 1)
                 .iconSet(MaterialIconSet.FLUID)
-                .fluid()
+                .liquid(new FluidBuilder().temperature(973))
                 .buildAndRegister();
 
         HOT_STEAM = new Material.Builder(GTCEu.id("hot_steam"))
                 .color(0xffffff)
                 .iconSet(MaterialIconSet.FLUID)
-                .gas()
+                .gas(new FluidBuilder().temperature(548))
                 .buildAndRegister();
 
         HOT_SODIUM_POTASSIUM = new Material.Builder(GTCEu.id("hot_sodium_potassium"))
                 .color(0x96ffb9)
                 .iconSet(MaterialIconSet.FLUID)
-                .fluid()
+                .liquid(new FluidBuilder().temperature(833))
                 .buildAndRegister();
 
         NUCLEAR_WASTE = new Material.Builder(GTCEu.id("nuclear_waste"))

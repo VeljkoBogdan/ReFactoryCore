@@ -30,6 +30,7 @@ public class ReFactoryLangGen {
         replace(provider, "block.gtceu.uiv_hydrator", "Epic Hydrator III");
         replace(provider, "block.gtceu.uxv_hydrator", "Epic Hydrator IV");
         replace(provider, "block.gtceu.opv_hydrator", "Legendary Hydrator");
+        replace(provider, "block.gtceu.max_fake_nuclear_reactor", "Nuclear Cooling");
         replace(provider, "block.gtceu.steam_separator", "Steam Separator");
         replace(provider, "block.gtceu.steam_foundry", "Steam Foundry");
         replace(provider, "block.gtceu.bloodforge", "§cBloodforge");

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "refactorycore:block/casings/stable/stable_mana_burner_casing"
-  }
-}

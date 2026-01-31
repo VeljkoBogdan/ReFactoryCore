@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "refactorycore:block/machine/max_fake_nuclear_reactor",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "refactorycore:block/machine/max_fake_nuclear_reactor"
+    },
+    "facing=south": {
+      "model": "refactorycore:block/machine/max_fake_nuclear_reactor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "refactorycore:block/machine/max_fake_nuclear_reactor",
+      "y": 270
+    }
+  }
+}
