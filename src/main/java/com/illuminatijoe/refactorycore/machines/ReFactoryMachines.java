@@ -290,7 +290,7 @@ public class ReFactoryMachines {
                         .abilities(abilities)
                         .rotationState(RotationState.ALL)
                         .modelProperty(GTMachineModelProperties.IS_FORMED, false)
-                        .overlayTieredHullModel("aura_hatch")
+                        .overlayTieredHullModel(io == IO.IN ? "aura_import_hatch" : "aura_export_hatch")
                         .register(),
                 MV);
     }

@@ -10,7 +10,7 @@
   "variants": {
     "is_formed=false": {
       "model": {
-        "parent": "refactorycore:block/machine/part/aura_hatch",
+        "parent": "refactorycore:block/machine/part/aura_import_hatch",
         "textures": {
           "bottom": "gtceu:block/casings/voltage/mv/bottom",
           "side": "gtceu:block/casings/voltage/mv/side",
@@ -20,7 +20,7 @@
     },
     "is_formed=true": {
       "model": {
-        "parent": "refactorycore:block/machine/part/aura_hatch",
+        "parent": "refactorycore:block/machine/part/aura_import_hatch",
         "textures": {
           "bottom": "gtceu:block/casings/voltage/mv/bottom",
           "side": "gtceu:block/casings/voltage/mv/side",
