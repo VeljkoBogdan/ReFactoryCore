@@ -1,4 +1,4 @@
-package com.illuminatijoe.refactorycore.machines.multiblock;
+package com.illuminatijoe.refactorycore.machines.multiblock.electric;
 
 import com.illuminatijoe.refactorycore.client.renderer.ReFactoryRenderUtils;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;

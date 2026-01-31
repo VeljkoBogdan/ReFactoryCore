@@ -1,6 +1,4 @@
-package com.illuminatijoe.refactorycore.machines.multiblock;
-
-import static com.gregtechceu.gtceu.api.GTValues.*;
+package com.illuminatijoe.refactorycore.machines.multiblock.generator;
 
 public class ManaBurners {
 

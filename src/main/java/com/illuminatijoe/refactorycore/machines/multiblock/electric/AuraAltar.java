@@ -1,8 +1,7 @@
-package com.illuminatijoe.refactorycore.machines.multiblock;
+package com.illuminatijoe.refactorycore.machines.multiblock.electric;
 
 import com.illuminatijoe.refactorycore.ReFactoryCore;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
-import com.illuminatijoe.refactorycore.machines.multiblock.electric.AuraAltarMultiblockMachine;
 import com.illuminatijoe.refactorycore.machines.part.ReFactoryPartAbilities;
 
 import com.gregtechceu.gtceu.api.data.RotationState;

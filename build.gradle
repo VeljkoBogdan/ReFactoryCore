@@ -158,7 +158,7 @@ dependencies {
     // curios
     runtimeOnly fg.deobf("curse.maven:curios-309927:6418456")
 
-    // kubejs aisle tool
+    // kubejs aisle tool DISABLE ON JAR
     runtimeOnly fg.deobf("curse.maven:kubejs-aisle-tool-1236291:7543948")
 
     // botania, runtime only until I really start making custom Botania stuffs
