@@ -1,5 +1,9 @@
 package com.illuminatijoe.refactorycore.data.recipes;
 
+import com.illuminatijoe.refactorycore.data.materials.NuclearMaterials;
+
+import com.gregtechceu.gtceu.api.GTValues;
+
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
@@ -162,6 +166,27 @@ public class ReFactoryCoreRecipes {
                 .outputItems(block, Steel)
                 .outputItems(dust, Ash)
                 .duration(180 * REDUCED_DURATION)
+                .save(provider);
+
+        COOLING_TOWER.recipeBuilder("hot_steam_cooling")
+                .inputFluids(NuclearMaterials.HOT_STEAM.getFluid(16000))
+                .outputFluids(Water.getFluid(16000))
+                .duration(20 * 2)
+                .EUt(GTValues.VA[GTValues.MV])
+                .save(provider);
+
+        COOLING_TOWER.recipeBuilder("hot_sodium_potassium_cooling")
+                .inputFluids(NuclearMaterials.HOT_SODIUM_POTASSIUM.getFluid(12000))
+                .outputFluids(SodiumPotassium.getFluid(12000))
+                .duration(20 * 2)
+                .EUt(GTValues.VA[GTValues.MV])
+                .save(provider);
+
+        COOLING_TOWER.recipeBuilder("hot_flinak_cooling")
+                .inputFluids(NuclearMaterials.HOT_FLINAK.getFluid(8000))
+                .outputFluids(NuclearMaterials.FLINAK.getFluid(8000))
+                .duration(20 * 2)
+                .EUt(GTValues.VA[GTValues.MV])
                 .save(provider);
 
         // BLOODFORGE.recipeBuilder("dirt_from_dirt")

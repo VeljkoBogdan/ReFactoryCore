@@ -8,6 +8,7 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.GTSoundEntries;
 
+import static com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection.DOWN_TO_UP;
 import static com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection.LEFT_TO_RIGHT;
 
 public class ReFactoryCoreRecipeTypes {
@@ -34,13 +35,13 @@ public class ReFactoryCoreRecipeTypes {
             .setProgressBar(GuiTextures.PROGRESS_BAR_BATH, LEFT_TO_RIGHT)
             .setSound(ReFactorySounds.BLOODFORGE);
 
-    public static final GTRecipeType MANA_BURNER_FUELS = GTRecipeTypes.register(
-            "mana_burner", GTRecipeTypes.GENERATOR)
-            .setMaxIOSize(0, 0, 1, 1)
-            .setEUIO(IO.OUT)
-            .setSlotOverlay(false, true, true, GuiTextures.CENTRIFUGE_OVERLAY)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_GAS_COLLECTOR, LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.TURBINE);
+    // public static final GTRecipeType MANA_BURNER_FUELS = GTRecipeTypes.register(
+    // "mana_burner", GTRecipeTypes.GENERATOR)
+    // .setMaxIOSize(0, 0, 1, 1)
+    // .setEUIO(IO.OUT)
+    // .setSlotOverlay(false, true, true, GuiTextures.CENTRIFUGE_OVERLAY)
+    // .setProgressBar(GuiTextures.PROGRESS_BAR_GAS_COLLECTOR, LEFT_TO_RIGHT)
+    // .setSound(GTSoundEntries.TURBINE);
 
     public static final GTRecipeType AURA_ALTAR = GTRecipeTypes.register(
             "aura_altar", GTRecipeTypes.MULTIBLOCK)
@@ -55,6 +56,13 @@ public class ReFactoryCoreRecipeTypes {
             .setEUIO(IO.OUT)
             .setProgressBar(GuiTextures.PROGRESS_BAR_FUSION, LEFT_TO_RIGHT)
             .setSound(GTSoundEntries.TURBINE);
+
+    public static final GTRecipeType COOLING_TOWER = GTRecipeTypes.register(
+            "cooling_tower", GTRecipeTypes.MULTIBLOCK)
+            .setMaxIOSize(1, 1, 1, 1)
+            .setEUIO(IO.IN)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_GAS_COLLECTOR, DOWN_TO_UP)
+            .setSound(GTSoundEntries.CENTRIFUGE);
 
     public static void init() {}
 }

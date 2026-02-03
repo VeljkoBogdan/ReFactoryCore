@@ -5,6 +5,7 @@ import com.illuminatijoe.refactorycore.api.capabilities.IAuraContainer;
 import com.illuminatijoe.refactorycore.api.capabilities.ILPContainer;
 import com.illuminatijoe.refactorycore.api.capabilities.recipe.lookup.MapLPIngredient;
 import com.illuminatijoe.refactorycore.client.ReFactoryCoreClient;
+import com.illuminatijoe.refactorycore.data.ReFactoryBlocks;
 import com.illuminatijoe.refactorycore.data.ReFactoryItems;
 import com.illuminatijoe.refactorycore.data.ReFactorySounds;
 import com.illuminatijoe.refactorycore.data.datagen.ReFactoryDatagen;
@@ -92,6 +93,7 @@ public class ReFactoryCore {
         NuclearMaterials.register();
 
         ReFactoryItems.init();
+        ReFactoryBlocks.register();
     }
 
     private void modifyMaterials(PostMaterialEvent event) {

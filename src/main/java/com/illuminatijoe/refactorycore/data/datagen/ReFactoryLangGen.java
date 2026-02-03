@@ -44,6 +44,7 @@ public class ReFactoryLangGen {
         replace(provider, "gtceu.mana_burner", "Mana Burning");
         replace(provider, "gtceu.nuclear_reactor", "Nuclear Fission");
         replace(provider, "gtceu.fake_nuclear_reactor", "Nuclear Cooling");
+        replace(provider, "gtceu.cooling_tower", "Tower Cooling");
 
         // Tooltips
         provider.add("tooltip.refactorycore.lp_hatch.input", "Max Recipe Input: %s");
@@ -89,6 +90,8 @@ public class ReFactoryLangGen {
         replace(provider, "tooltip.refactorycore.nuclear_reactor.3", "The exact formula is: %s");
         replace(provider, "tooltip.refactorycore.nuclear_reactor.4", "Coolants:");
         replace(provider, "refactorycore.misc.nuclear_coolant_list", "%s: %s mB");
+        replace(provider, "tooltip.refactorycore.cooling_tower",
+                "Cools a large amount of a liquid using a small amount of power");
 
         // Tiered machine tooltips
         standardTooltips(provider, "gtceu.machine", "hydrator",

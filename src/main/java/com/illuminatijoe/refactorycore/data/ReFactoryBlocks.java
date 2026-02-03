@@ -22,18 +22,18 @@ import static com.illuminatijoe.refactorycore.api.ReFactoryRegistries.REGISTRATE
 
 public class ReFactoryBlocks {
 
-    public static final BlockEntry<Block> MANA_BURNER_CASING_STAINLESS_STEEL = createCasingBlock(
-            "clean_mana_burner_casing",
-            ReFactoryCore.id("block/casings/clean/clean_mana_burner_casing"));
-    public static final BlockEntry<Block> MANA_BURNER_CASING_TITANIUM = createCasingBlock(
-            "stable_mana_burner_casing",
-            ReFactoryCore.id("block/casings/stable/stable_mana_burner_casing"));
-    public static final BlockEntry<Block> MANA_BURNER_CASING_TUNGSTENSTEEL = createCasingBlock(
-            "robust_mana_burner_casing",
-            ReFactoryCore.id("block/casings/robust/robust_mana_burner_casing"));
-    public static final BlockEntry<Block> MANA_BURNER_CASING_PALLADIUM_RHODIUM = createCasingBlock(
-            "vigorous_mana_burner_casing",
-            ReFactoryCore.id("block/casings/vigorous/vigorous_mana_burner_casing"));
+    // public static final BlockEntry<Block> MANA_BURNER_CASING_STAINLESS_STEEL = createCasingBlock(
+    // "clean_mana_burner_casing",
+    // ReFactoryCore.id("block/casings/clean/clean_mana_burner_casing"));
+    // public static final BlockEntry<Block> MANA_BURNER_CASING_TITANIUM = createCasingBlock(
+    // "stable_mana_burner_casing",
+    // ReFactoryCore.id("block/casings/stable/stable_mana_burner_casing"));
+    // public static final BlockEntry<Block> MANA_BURNER_CASING_TUNGSTENSTEEL = createCasingBlock(
+    // "robust_mana_burner_casing",
+    // ReFactoryCore.id("block/casings/robust/robust_mana_burner_casing"));
+    // public static final BlockEntry<Block> MANA_BURNER_CASING_PALLADIUM_RHODIUM = createCasingBlock(
+    // "vigorous_mana_burner_casing",
+    // ReFactoryCore.id("block/casings/vigorous/vigorous_mana_burner_casing"));
     public static final BlockEntry<Block> NUCLEAR_CLADDING = createCasingBlock(
             "nuclear_cladding",
             ReFactoryCore.id("block/casings/nuclear/nuclear_cladding"));

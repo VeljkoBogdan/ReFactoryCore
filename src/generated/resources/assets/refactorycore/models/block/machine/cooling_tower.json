@@ -1,0 +1,90 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "gtceu:machine",
+  "machine": "refactorycore:cooling_tower",
+  "texture_overrides": {
+    "all": "minecraft:block/white_concrete"
+  },
+  "variants": {
+    "is_formed=false,recipe_logic_status=idle": {
+      "model": {
+        "parent": "gtceu:block/machine/template/cube_all/sided",
+        "textures": {
+          "all": "minecraft:block/white_concrete",
+          "overlay_bottom": "refactorycore:block/multiblock/cooling_tower/overlay_bottom",
+          "overlay_top": "refactorycore:block/multiblock/cooling_tower/overlay_top"
+        }
+      }
+    },
+    "is_formed=false,recipe_logic_status=suspend": {
+      "model": {
+        "parent": "gtceu:block/machine/template/cube_all/sided",
+        "textures": {
+          "all": "minecraft:block/white_concrete",
+          "overlay_bottom": "refactorycore:block/multiblock/cooling_tower/overlay_bottom",
+          "overlay_top": "refactorycore:block/multiblock/cooling_tower/overlay_top"
+        }
+      }
+    },
+    "is_formed=false,recipe_logic_status=waiting": {
+      "model": {
+        "parent": "gtceu:block/machine/template/cube_all/sided",
+        "textures": {
+          "all": "minecraft:block/white_concrete",
+          "overlay_bottom": "refactorycore:block/multiblock/cooling_tower/overlay_bottom_active",
+          "overlay_top": "refactorycore:block/multiblock/cooling_tower/overlay_top_active"
+        }
+      }
+    },
+    "is_formed=false,recipe_logic_status=working": {
+      "model": {
+        "parent": "gtceu:block/machine/template/cube_all/sided",
+        "textures": {
+          "all": "minecraft:block/white_concrete",
+          "overlay_bottom": "refactorycore:block/multiblock/cooling_tower/overlay_bottom_active",
+          "overlay_top": "refactorycore:block/multiblock/cooling_tower/overlay_top_active"
+        }
+      }
+    },
+    "is_formed=true,recipe_logic_status=idle": {
+      "model": {
+        "parent": "gtceu:block/machine/template/cube_all/sided",
+        "textures": {
+          "all": "minecraft:block/white_concrete",
+          "overlay_bottom": "refactorycore:block/multiblock/cooling_tower/overlay_bottom",
+          "overlay_top": "refactorycore:block/multiblock/cooling_tower/overlay_top"
+        }
+      }
+    },
+    "is_formed=true,recipe_logic_status=suspend": {
+      "model": {
+        "parent": "gtceu:block/machine/template/cube_all/sided",
+        "textures": {
+          "all": "minecraft:block/white_concrete",
+          "overlay_bottom": "refactorycore:block/multiblock/cooling_tower/overlay_bottom",
+          "overlay_top": "refactorycore:block/multiblock/cooling_tower/overlay_top"
+        }
+      }
+    },
+    "is_formed=true,recipe_logic_status=waiting": {
+      "model": {
+        "parent": "gtceu:block/machine/template/cube_all/sided",
+        "textures": {
+          "all": "minecraft:block/white_concrete",
+          "overlay_bottom": "refactorycore:block/multiblock/cooling_tower/overlay_bottom_active",
+          "overlay_top": "refactorycore:block/multiblock/cooling_tower/overlay_top_active"
+        }
+      }
+    },
+    "is_formed=true,recipe_logic_status=working": {
+      "model": {
+        "parent": "gtceu:block/machine/template/cube_all/sided",
+        "textures": {
+          "all": "minecraft:block/white_concrete",
+          "overlay_bottom": "refactorycore:block/multiblock/cooling_tower/overlay_bottom_active",
+          "overlay_top": "refactorycore:block/multiblock/cooling_tower/overlay_top_active"
+        }
+      }
+    }
+  }
+}
