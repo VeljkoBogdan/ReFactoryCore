@@ -17,8 +17,7 @@ import com.mojang.datafixers.util.Pair;
 
 import java.util.function.Consumer;
 
-import static com.illuminatijoe.refactorycore.integration.kubejs.ReFactoryRecipeComponent.LP_IN;
-import static com.illuminatijoe.refactorycore.integration.kubejs.ReFactoryRecipeComponent.LP_OUT;
+import static com.illuminatijoe.refactorycore.integration.kubejs.ReFactoryRecipeComponent.*;
 
 @SuppressWarnings("unused")
 @GTAddon
@@ -60,5 +59,6 @@ public class ReFactoryCoreGTAddon implements IGTAddon {
     @Override
     public void registerRecipeKeys(KJSRecipeKeyEvent event) {
         event.registerKey(ReFactoryRecipeCapabilities.LP, Pair.of(LP_IN, LP_OUT));
+        event.registerKey(ReFactoryRecipeCapabilities.AURA, Pair.of(AURA_IN, AURA_OUT));
     }
 }
