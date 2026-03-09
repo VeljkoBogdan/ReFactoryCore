@@ -1,6 +1,7 @@
 package com.illuminatijoe.refactorycore.machines.multiblock;
 
 import com.illuminatijoe.refactorycore.machines.multiblock.electric.AuraAltar;
+import com.illuminatijoe.refactorycore.machines.multiblock.electric.BasicFluidDrillingRig;
 import com.illuminatijoe.refactorycore.machines.multiblock.electric.Bloodforge;
 import com.illuminatijoe.refactorycore.machines.multiblock.generator.ManaBurners;
 import com.illuminatijoe.refactorycore.machines.multiblock.nuclear.NuclearReactor;
@@ -15,6 +16,7 @@ public class MultiblockInit {
         ManaBurners.init();
         NuclearReactor.init();
         CoolingTower.init();
+        BasicFluidDrillingRig.init();
 
         // dummy machines
         FakeNuclearReactor.init();
