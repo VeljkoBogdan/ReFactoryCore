@@ -1,4 +1,8 @@
 {
+  "tagprefix.curved_plate": "Curved %s Plate",
+  "tagprefix.conglomerate": "%s Conglomerate",
+  "material.gtceu.cobbled_limestone": "Limestone",
+  "material.gtceu.melting_flux": "Melting Flux",
   "block.gtceu.advanced_primitive_blast_furnace": "Advanced Blast Furnace",
   "block.gtceu.bloodforge": "§cBloodforge",
   "block.gtceu.bronze_multiblock_tank": "Bronze Multiblock Tank",

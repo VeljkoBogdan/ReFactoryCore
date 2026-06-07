@@ -5,6 +5,7 @@ import com.illuminatijoe.refactorycore.api.capabilities.recipe.ReFactoryRecipeCa
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipes;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryFuelRecipes;
+import com.illuminatijoe.refactorycore.data.tag.CustomTagPrefixes;
 
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
@@ -38,7 +39,7 @@ public class ReFactoryCoreGTAddon implements IGTAddon {
 
     @Override
     public void registerTagPrefixes() {
-        // CustomTagPrefixes.init();
+        CustomTagPrefixes.init();
     }
 
     @Override

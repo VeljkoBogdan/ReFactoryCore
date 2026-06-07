@@ -10,6 +10,7 @@ import com.illuminatijoe.refactorycore.data.ReFactoryBlocks;
 import com.illuminatijoe.refactorycore.data.ReFactoryItems;
 import com.illuminatijoe.refactorycore.data.ReFactorySounds;
 import com.illuminatijoe.refactorycore.data.datagen.ReFactoryDatagen;
+import com.illuminatijoe.refactorycore.data.materials.ConglomerateMaterials;
 import com.illuminatijoe.refactorycore.data.materials.NuclearMaterials;
 import com.illuminatijoe.refactorycore.data.materials.ReFactoryMaterials;
 import com.illuminatijoe.refactorycore.data.recipes.FakeRecipeTypes;
@@ -93,6 +94,7 @@ public class ReFactoryCore {
     private void addMaterials(MaterialEvent event) {
         ReFactoryMaterials.register();
         NuclearMaterials.register();
+        ConglomerateMaterials.register();
 
         ReFactoryItems.init();
         ReFactoryBlocks.register();

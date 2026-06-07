@@ -1,8 +1,13 @@
 package com.illuminatijoe.refactorycore.data.recipes;
 
+import com.illuminatijoe.refactorycore.data.materials.ConglomerateMaterials;
 import com.illuminatijoe.refactorycore.data.materials.NuclearMaterials;
+import com.illuminatijoe.refactorycore.data.tag.CustomTagPrefixes;
 
+import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.material.Material;
+import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 
 import net.minecraft.data.recipes.FinishedRecipe;
 
@@ -10,6 +15,9 @@ import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.BENDER_RECIPES;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.MACERATOR_RECIPES;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.MIXER_RECIPES;
 import static com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes.*;
 
 public class ReFactoryCoreRecipes {
@@ -20,6 +28,7 @@ public class ReFactoryCoreRecipes {
         ReFactoryCoreMetaTileEntityLoader.init(provider);
         NuclearRecipes.init(provider);
         FakeRecipes.init(provider);
+        registerTagPrefixRecipes(provider);
 
         ADVANCED_PRIMITIVE_BLAST_FURNACE_RECIPES.recipeBuilder("steel_from_coal_gem")
                 .inputItems(ingot, Iron)
@@ -189,28 +198,56 @@ public class ReFactoryCoreRecipes {
                 .EUt(GTValues.VA[GTValues.MV])
                 .save(provider);
 
-        // BLOODFORGE.recipeBuilder("dirt_from_dirt")
-        // .inputItems(Items.DIRT)
-        // .input(LPRecipeCapability.CAP, 100)
-        // .outputItems(Items.DIRT)
-        // .duration(400)
-        // .EUt(GTValues.VA[GTValues.HV])
-        // .save(provider);
+        MIXER_RECIPES.recipeBuilder("melting_flux_from_charcoal")
+                .inputItems(dust, Charcoal)
+                .inputItems(dust, QuartzSand)
+                .outputItems(dust, ConglomerateMaterials.MeltingFlux, 4)
+                .duration(100)
+                .EUt(GTValues.VA[GTValues.ULV])
+                .save(provider);
 
-        // AURA_ALTAR.recipeBuilder("dirt_from_dirt")
-        // .inputItems(Items.DIRT)
-        // .input(AuraRecipeCapability.CAP, 25000)
-        // .outputItems(Items.DIRT)
-        // .duration(400)
-        // .EUt(GTValues.VA[GTValues.HV])
-        // .save(provider);
+        MIXER_RECIPES.recipeBuilder("melting_flux_from_coal")
+                .inputItems(dust, Coal)
+                .inputItems(dust, QuartzSand)
+                .outputItems(dust, ConglomerateMaterials.MeltingFlux, 8)
+                .duration(100)
+                .EUt(GTValues.VA[GTValues.ULV])
+                .save(provider);
 
-        // AURA_ALTAR.recipeBuilder("stone_from_stone")
-        // .inputItems(Items.COBBLESTONE)
-        // .output(AuraRecipeCapability.CAP, 25000)
-        // .outputItems(Items.COBBLESTONE)
-        // .duration(400)
-        // .EUt(GTValues.VA[GTValues.HV])
-        // .save(provider);
+        MIXER_RECIPES.recipeBuilder("melting_flux_from_limestone")
+                .inputItems(dust, ConglomerateMaterials.CobbledLimestone)
+                .inputItems(dust, QuartzSand)
+                .outputItems(dust, ConglomerateMaterials.MeltingFlux, 16)
+                .duration(100)
+                .EUt(GTValues.VA[GTValues.ULV])
+                .save(provider);
+
+        MIXER_RECIPES.recipeBuilder("melting_flux_from_borax")
+                .inputItems(dust, Borax)
+                .inputItems(dust, QuartzSand)
+                .outputItems(dust, ConglomerateMaterials.MeltingFlux, 64)
+                .duration(100)
+                .EUt(GTValues.VA[GTValues.ULV])
+                .save(provider);
+
+        MACERATOR_RECIPES.recipeBuilder("limestone_conglomerate_macerating")
+                .inputItems(CustomTagPrefixes.conglomerate, ConglomerateMaterials.CobbledLimestone)
+                .outputItems(dust, ConglomerateMaterials.CobbledLimestone, 9)
+                .duration(200)
+                .EUt(GTValues.VA[GTValues.ULV])
+                .save(provider);
+    }
+
+    private static void registerTagPrefixRecipes(Consumer<FinishedRecipe> provider) {
+        for (Material material : GTCEuAPI.materialManager.getRegisteredMaterials()) {
+            if (material.hasFlag(MaterialFlags.GENERATE_PLATE)) {
+                BENDER_RECIPES.recipeBuilder("curved_plate_" + material.getName())
+                        .inputItems(plate, material)
+                        .outputItems(CustomTagPrefixes.curvedPlate, material)
+                        .duration(100)
+                        .EUt(GTValues.VA[GTValues.ULV])
+                        .save(provider);
+            }
+        }
     }
 }
