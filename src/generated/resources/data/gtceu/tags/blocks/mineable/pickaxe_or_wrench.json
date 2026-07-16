@@ -1,6 +1,8 @@
 {
   "values": [
     "refactorycore:nuclear_cladding",
-    "refactorycore:control_rod_casing"
+    "refactorycore:control_rod_casing",
+    "refactorycore:high_temperature_space_casing",
+    "refactorycore:carbon_fiber_reinforced_aerogel_panel"
   ]
 }

@@ -36,6 +36,11 @@ public class ReFactoryLangGen {
         replace(provider, "block.gtceu.bloodforge", "§cBloodforge");
         replace(provider, "block.gtceu.nuclear_reactor", "Nuclear Reactor");
         replace(provider, "block.gtceu.fake_nuclear_reactor", "Fake Nuclear Reactor");
+        replace(provider, "block.gtceu.nuclear_cladding", "Nuclear Cladding");
+        replace(provider, "block.gtceu.control_rod_casing", "Control Rod Casing");
+
+        replace(provider, "block.refactorycore.hts_casing", "High Temperature Space Casing");
+        replace(provider, "block.refactorycore.cfra_panel", "Carbon Fiber Reinforced Aerogel Panel");
 
         // Recipes
         replace(provider, "gtceu.advanced_primitive_blast_furnace", "Advanced Blasting");

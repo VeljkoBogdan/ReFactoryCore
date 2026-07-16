@@ -40,6 +40,12 @@ public class ReFactoryBlocks {
     public static final BlockEntry<Block> CONTROL_ROD_CASING = createCasingBlock(
             "control_rod_casing",
             ReFactoryCore.id("block/casings/nuclear/control_rod_casing"));
+    public static final BlockEntry<Block> HIGH_TEMPERATURE_SPACE_CASING = createCasingBlock(
+            "high_temperature_space_casing",
+            ReFactoryCore.id("block/casings/space/high_temperature_space_casing"));
+    public static final BlockEntry<Block> CARBON_FIBER_REINFORCED_AEROGEL_PANEL = createCasingBlock(
+            "carbon_fiber_reinforced_aerogel_panel",
+            ReFactoryCore.id("block/casings/space/carbon_fiber_reinforced_aerogel_panel"));
 
     public static void register() {}
 
