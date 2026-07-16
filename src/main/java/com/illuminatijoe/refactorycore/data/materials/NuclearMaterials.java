@@ -31,7 +31,7 @@ public class NuclearMaterials {
 
         HOT_FLINAK = new Material.Builder(GTCEu.id("hot_flinak"))
                 .color(0xbfffdb)
-                .components(FLINAK, 1)
+                .components(Fluorine, 1, Lithium, 1, Sodium, 1, Potassium, 1)
                 .iconSet(MaterialIconSet.FLUID)
                 .liquid(new FluidBuilder().temperature(973))
                 .buildAndRegister();
