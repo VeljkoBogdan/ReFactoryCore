@@ -1,0 +1,8 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "gtceu:item/material_sets/metallic/ingot",
+    "layer1": "refactorycore:item/material_sets/bloom/ingot_secondary",
+    "layer2": "refactorycore:item/material_sets/bloom/ingot_overlay"
+  }
+}
