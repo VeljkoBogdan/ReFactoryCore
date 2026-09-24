@@ -1,19 +1,24 @@
 package com.illuminatijoe.refactorycore.machines.multiblock.electric;
 
+import com.illuminatijoe.refactorycore.ReFactoryCore;
 import com.illuminatijoe.refactorycore.client.renderer.ReFactoryRenderUtils;
+import com.illuminatijoe.refactorycore.data.ReFactoryBlocks;
 import com.illuminatijoe.refactorycore.data.recipes.ReFactoryCoreRecipeTypes;
+import com.illuminatijoe.refactorycore.machines.part.LPHatchPartMachine;
 import com.illuminatijoe.refactorycore.machines.part.ReFactoryPartAbilities;
 
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.data.RotationState;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
-import com.gregtechceu.gtceu.common.data.GCYMBlocks;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
+import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.models.GTMachineModels;
 
@@ -33,35 +38,40 @@ public class Bloodforge {
             .rotationState(RotationState.NON_Y_AXIS)
             .recipeType(ReFactoryCoreRecipeTypes.BLOODFORGE)
             .partAppearance(
-                    (iMultiController, iMultiPart, direction) -> GTBlocks.CASING_TITANIUM_STABLE.getDefaultState())
+                    (c, p, d) -> {
+                        if (p instanceof LPHatchPartMachine)
+                            return BloodMagicBlocks.BLANK_RUNE.get().defaultBlockState();
+                        return GTBlocks.CASING_TITANIUM_STABLE.getDefaultState();
+                    })
             .recipeModifiers(GTRecipeModifiers.PARALLEL_HATCH,
                     GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK),
                     GTRecipeModifiers.BATCH_MODE)
             .pattern(definition -> FactoryBlockPattern.start()
                     // spotless:off
-                    .aisle("C       C", "CC  A  CC", "    A    ", "    A    ", "    A    ", "         ", "         ", "         ", "    A    ", "    A    ")
-                    .aisle("    A    ", "C   A   C", " CCCCCCC ", "  C   C  ", "  C   C  ", "  C   C  ", " DDDDDDD ", " CC A CC ", "    A    ", "         ")
-                    .aisle("    A    ", "         ", " CC C CC ", " CR   RC ", " CR   RC ", " CRRDRRC ", " DR A RD ", " CR A RC ", "         ", "         ")
-                    .aisle("         ", "         ", " C CCC C ", "         ", "         ", "  R   R  ", " D     D ", "    R    ", "         ", "         ")
-                    .aisle(" AA   AA ", "AA     AA", "ACCCCCCCA", "A   S   A", "A       A", "  D   D  ", " DA   AD ", " AARARAA ", "AA  A  AA", "A       A")
-                    .aisle("         ", "         ", " C CCC C ", "         ", "         ", "  R   R  ", " D     D ", "    R    ", "         ", "         ")
-                    .aisle("    A    ", "         ", " CC C CC ", " CR   RC ", " CR   RC ", " CRRDRRC ", " DR A RD ", " CR A RC ", "         ", "         ")
-                    .aisle("    A    ", "C   A   C", " CCCCCCC ", "  C   C  ", "  C   C  ", "  C   C  ", " DDDDDDD ", " CC A CC ", "    A    ", "         ")
-                    .aisle("C       C", "CC  A  CC", "  AAAAA  ", "  A O A  ", "    A    ", "         ", "         ", "         ", "    A    ", "    A    ")
+                    .aisle("aaaaaaa", "aaaaaaa", "aaaaaaa", "aaaaaaa", "aaahaaa", "aaagaaa", "aaafaaa")
+                    .aisle("abbcbba", "adbbbda", "aadbdaa", "aaagaaa", "aaagaaa", "aaaaaaa", "aaaaaaa")
+                    .aisle("acbbbca", "abaaaba", "aabbbaa", "aaagaaa", "aaaaaaa", "aaaaaaa", "aaaaaaa")
+                    .aisle("acbbbca", "abaaaba", "aabbbaa", "aggggga", "hgaiagh", "gaaaaag", "faaaaaf")
+                    .aisle("acbbbca", "abaaaba", "aabbbaa", "aaagaaa", "aaaaaaa", "aaaaaaa", "aaaaaaa")
+                    .aisle("abbcbba", "adbebda", "aadbdaa", "aaaaaaa", "aaafaaa", "aaaaaaa", "aaaaaaa")
                     // spotless:on
-                    .where('C', Predicates.blocks(BloodMagicBlocks.BLANK_RUNE.get())
-                            .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1))
-                            .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setExactLimit(1))
+                    .where("e", Predicates.controller(Predicates.blocks(definition.get())))
+                    .where("a", Predicates.any())
+                    .where("h", Predicates.blocks(BloodMagicBlocks.SPEED_RUNE.get()))
+                    .where("g", Predicates.blocks(BloodMagicBlocks.BLANK_RUNE.get()))
+                    .where("f", Predicates.blocks(BloodMagicBlocks.SACRIFICE_RUNE.get()))
+                    .where("c", Predicates.blocks(GTBlocks.FIREBOX_STEEL.get()))
+                    .where("d", Predicates.blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, GTMaterials.Tungsten)))
+                    .where("b", Predicates.blocks(ReFactoryBlocks.INFERNAL_CASING.get())
+                            .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setExactLimit(1).setPreviewCount(1))
                             .or(Predicates.autoAbilities(ReFactoryCoreRecipeTypes.BLOODFORGE)))
-                    .where('R', Predicates.blocks(GTBlocks.COIL_NICHROME.get()))
-                    .where('D', Predicates.blocks(GCYMBlocks.CASING_NONCONDUCTING.get()))
-                    .where('O', Predicates.controller(Predicates.blocks(definition.get())))
-                    .where(' ', Predicates.any())
-                    .where('A', Predicates.blocks(GTBlocks.CASING_TITANIUM_STABLE.get()))
-                    .where('S', Predicates.abilities(ReFactoryPartAbilities.IMPORT_LP).setExactLimit(1))
+                    .where("i", Predicates.abilities(ReFactoryPartAbilities.IMPORT_LP)
+                            .setExactLimit(1)
+                            .setPreviewCount(1))
                     .build())
             .model(GTMachineModels.createWorkableCasingMachineModel(
-                    GTCEu.id("block/casings/solid/machine_casing_stable_titanium"),
+                    ReFactoryCore.id("block/casings/blood/infernal_casing"),
                     GTCEu.id("block/multiblock/power_substation"))
                     .andThen(modelBuilder -> {
                         if (Platform.isClient()) {

@@ -6,7 +6,6 @@ import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMa
 import com.gregtechceu.gtceu.api.pattern.util.RelativeDirection;
 import com.gregtechceu.gtceu.client.renderer.machine.DynamicRender;
 import com.gregtechceu.gtceu.client.renderer.machine.DynamicRenderType;
-import com.gregtechceu.gtceu.client.util.ModelUtils;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.Util;
@@ -16,8 +15,10 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -35,15 +36,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class BloodforgeRender extends DynamicRender<WorkableElectricMultiblockMachine, BloodforgeRender> {
 
     public static final ResourceLocation BLOOD_BALL_TEXTURE = ReFactoryCore.id("block/blood");
-    private static TextureAtlasSprite bloodBallSprite = null;
-    private static boolean isEventListenerRegistered = false;
 
     public static final BloodforgeRender INSTANCE = new BloodforgeRender();
     public static final Codec<BloodforgeRender> CODEC = Codec.unit(INSTANCE);
-    private static DynamicRenderType<WorkableElectricMultiblockMachine, BloodforgeRender> TYPE;
+    public static final DynamicRenderType<WorkableElectricMultiblockMachine, BloodforgeRender> TYPE = new DynamicRenderType<>(
+            CODEC);
+
+    private static long baseTick = Long.MIN_VALUE;
 
     public static DynamicRenderType<WorkableElectricMultiblockMachine, BloodforgeRender> getRenderType() {
-        if (TYPE == null) TYPE = new DynamicRenderType<>(Codec.unit(new BloodforgeRender()));
         return TYPE;
     }
 
@@ -58,16 +59,6 @@ public class BloodforgeRender extends DynamicRender<WorkableElectricMultiblockMa
 
         return new AABB(minPos, maxPos);
     });
-
-    @SuppressWarnings("deprecation")
-    public BloodforgeRender() {
-        if (!isEventListenerRegistered) {
-            ModelUtils.registerAtlasStitchedEventListener(true, TextureAtlas.LOCATION_BLOCKS, event -> {
-                bloodBallSprite = event.getAtlas().getSprite(BLOOD_BALL_TEXTURE);
-            });
-            isEventListenerRegistered = true;
-        }
-    }
 
     @Override
     public DynamicRenderType<WorkableElectricMultiblockMachine, BloodforgeRender> getType() {
@@ -92,8 +83,17 @@ public class BloodforgeRender extends DynamicRender<WorkableElectricMultiblockMa
     public void render(WorkableElectricMultiblockMachine machine, float partialTick, PoseStack poseStack,
                        MultiBufferSource buffer, int packedLight, int packedOverlay) {
         if (!machine.isFormed()) return;
+        Level level = machine.getLevel();
+        if (level == null) return;
 
-        float totalTick = (Minecraft.getInstance().player.tickCount + partialTick);
+        long gameTime = level.getGameTime();
+        if (baseTick == Long.MIN_VALUE) baseTick = gameTime;
+
+        double worldTime = gameTime + (double) partialTick;
+        float t = (float) (gameTime - baseTick) + partialTick;
+
+        int period = machine.getRecipeLogic().isWorking() ? 16 : 34;
+        float beat = heartbeat((float) ((worldTime % period) / period));
 
         poseStack.pushPose();
 
@@ -102,59 +102,53 @@ public class BloodforgeRender extends DynamicRender<WorkableElectricMultiblockMa
         boolean flipped = machine.isFlipped();
         Direction up = RelativeDirection.UP.getRelative(front, upwards, flipped);
         Direction back = RelativeDirection.BACK.getRelative(front, upwards, flipped);
-        Direction.Axis leftAxis = RelativeDirection.LEFT.getRelative(front, upwards, flipped).getAxis();
 
-        float x0ffset = 0, y0ffset = 0, z0ffset = 0;
-        for (Direction.Axis axis : Direction.Axis.VALUES) {
-            int upOffset = up.getNormal().get(axis);
-            int backOffset = back.getNormal().get(axis);
+        Vec3i u = up.getNormal(), b = back.getNormal();
+        poseStack.translate(0.5 + 5 * u.getX() + 2 * b.getX(),
+                0.5 + 5 * u.getY() + 2 * b.getY(),
+                0.5 + 5 * u.getZ() + 2 * b.getZ());
 
-            float offset = upOffset * (2.0f + (upOffset * 0.5f)) +
-                    backOffset * (4.0f + (backOffset * 0.5f));
-            switch (axis) {
-                case X -> x0ffset = offset;
-                case Y -> y0ffset = offset;
-                case Z -> z0ffset = offset;
-            }
-        }
-        poseStack.translate(
-                x0ffset + (leftAxis == Direction.Axis.X ? 0.5f : 0.0f),
-                y0ffset + (leftAxis == Direction.Axis.Y ? 0.5f : 0.0f),
-                z0ffset + (leftAxis == Direction.Axis.Z ? 0.5f : 0.0f));
-
-        renderBloodBall(poseStack, buffer, totalTick);
+        renderBloodBall(poseStack, buffer, t, beat);
 
         poseStack.popPose();
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void renderBloodBall(PoseStack poseStack, MultiBufferSource bufferSource, float totalTick) {
+    public void renderBloodBall(PoseStack poseStack, MultiBufferSource bufferSource, float t, float beat) {
         poseStack.pushPose();
 
         float trembleAmplitude = 0.04f;
         float trembleSpeed = 4f;
         float trembleModSpeed = 0.2f;
         float variableTremble = 1f +
-                trembleAmplitude * Mth.sin(totalTick * trembleSpeed) * Mth.sin(totalTick * trembleModSpeed);
+                trembleAmplitude * Mth.sin(t * trembleSpeed) * Mth.sin(t * trembleModSpeed);
 
         float trembleBaseSpeed = 1f;
-        float baseTremble = 1f + Mth.sin(totalTick * trembleBaseSpeed) * trembleAmplitude;
+        float baseTremble = 1f + Mth.sin(t * trembleBaseSpeed) * trembleAmplitude;
 
-        Quaternionf rot = new Quaternionf()
-                .scale(1 + Mth.sin(totalTick / 20) / 5)
-                .scale(variableTremble)
-                .scale(baseTremble)
-                .rotateXYZ(totalTick / 20,
-                        Mth.sin(totalTick / 20),
-                        Mth.cos(Mth.HALF_PI + totalTick / 40));
+        float breathing = 1f + Mth.sin(t / 20) / 10;
+        float s = breathing * (1f + 0.18f * beat) * variableTremble * baseTremble;
+        poseStack.scale(s, s, s);
+        poseStack.mulPose(new Quaternionf().rotateXYZ(t / 20, Mth.sin(t / 20),
+                Mth.cos(Mth.HALF_PI + t / 40)));
 
-        poseStack.mulPose(rot);
+        TextureAtlasSprite sprite = Minecraft.getInstance()
+                .getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
+                .apply(BLOOD_BALL_TEXTURE);
 
-        ReFactoryRenderBufferHelper.renderSolidSphere(poseStack, bufferSource, bloodBallSprite,
-                0f, 0f, 0f, 1f,
-                16, 8,
-                0.5f, 0.03f, 0.03f, 1.0f);
+        ReFactoryRenderBufferHelper.renderBloodSphere(poseStack, bufferSource, sprite,
+                1.25f, t, beat,
+                0.7f, 0.04f, 0.04f, 1.0f);
 
         poseStack.popPose();
+    }
+
+    private static float gauss(float x, float mean, float sigma) {
+        float d = (x - mean) / sigma;
+        return (float) Math.exp(-d * d);
+    }
+
+    private static float heartbeat(float phase) {
+        return gauss(phase, 0.08f, 0.045f) + 0.6f * gauss(phase, 0.28f, 0.05f);
     }
 }

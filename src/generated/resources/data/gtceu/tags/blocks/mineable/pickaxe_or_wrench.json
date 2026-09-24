@@ -3,6 +3,7 @@
     "refactorycore:nuclear_cladding",
     "refactorycore:control_rod_casing",
     "refactorycore:high_temperature_space_casing",
-    "refactorycore:carbon_fiber_reinforced_aerogel_panel"
+    "refactorycore:carbon_fiber_reinforced_aerogel_panel",
+    "refactorycore:infernal_casing"
   ]
 }

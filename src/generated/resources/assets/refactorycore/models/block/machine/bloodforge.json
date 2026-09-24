@@ -8,14 +8,14 @@
   "loader": "gtceu:machine",
   "machine": "refactorycore:bloodforge",
   "texture_overrides": {
-    "all": "gtceu:block/casings/solid/machine_casing_stable_titanium"
+    "all": "refactorycore:block/casings/blood/infernal_casing"
   },
   "variants": {
     "is_formed=false,recipe_logic_status=idle": {
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
+          "all": "refactorycore:block/casings/blood/infernal_casing",
           "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front"
         }
       }
@@ -24,7 +24,7 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
+          "all": "refactorycore:block/casings/blood/infernal_casing",
           "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front"
         }
       }
@@ -33,7 +33,7 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
+          "all": "refactorycore:block/casings/blood/infernal_casing",
           "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front_active",
           "overlay_front_emissive": "gtceu:block/multiblock/power_substation/overlay_front_active_emissive"
         }
@@ -43,7 +43,7 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
+          "all": "refactorycore:block/casings/blood/infernal_casing",
           "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front_active",
           "overlay_front_emissive": "gtceu:block/multiblock/power_substation/overlay_front_active_emissive"
         }
@@ -53,7 +53,7 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
+          "all": "refactorycore:block/casings/blood/infernal_casing",
           "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front"
         }
       }
@@ -62,7 +62,7 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
+          "all": "refactorycore:block/casings/blood/infernal_casing",
           "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front"
         }
       }
@@ -71,7 +71,7 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
+          "all": "refactorycore:block/casings/blood/infernal_casing",
           "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front_active",
           "overlay_front_emissive": "gtceu:block/multiblock/power_substation/overlay_front_active_emissive"
         }
@@ -81,7 +81,7 @@
       "model": {
         "parent": "gtceu:block/machine/template/cube_all/sided",
         "textures": {
-          "all": "gtceu:block/casings/solid/machine_casing_stable_titanium",
+          "all": "refactorycore:block/casings/blood/infernal_casing",
           "overlay_front": "gtceu:block/multiblock/power_substation/overlay_front_active",
           "overlay_front_emissive": "gtceu:block/multiblock/power_substation/overlay_front_active_emissive"
         }

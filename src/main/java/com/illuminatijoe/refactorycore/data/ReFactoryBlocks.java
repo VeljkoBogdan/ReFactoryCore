@@ -47,6 +47,10 @@ public class ReFactoryBlocks {
             "carbon_fiber_reinforced_aerogel_panel",
             ReFactoryCore.id("block/casings/space/carbon_fiber_reinforced_aerogel_panel"));
 
+    // Bloodforge
+    public static final BlockEntry<Block> INFERNAL_CASING = createCasingBlock(
+            "infernal_casing", ReFactoryCore.id("block/casings/blood/infernal_casing"));
+
     public static void register() {}
 
     public static BlockEntry<Block> createCasingBlock(String name, ResourceLocation texture) {
